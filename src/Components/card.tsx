@@ -1,52 +1,33 @@
 import { useEffect, useState } from "react";
-import { getMovieData } from "../API/API";
+import { getTopRatedMovies } from "../API/API";
 
-interface MovieData {
+interface Movie {
   title: string;
   overview: string;
   poster_path: string;
+  // Adicione outras propriedades necessárias conforme a resposta da API
 }
 
-// função de lista aleatória
-function getRandomNumber(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// função principal
 export default function Card() {
-  const [moviesList, setMoviesList] = useState<MovieData[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const moviesPerPage = 10;
+  const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
+    // função que carrega dados da api favoritos
     const fetchMovies = async () => {
       try {
-        const moviesData = [];
-        for (let i = 0; i < 10; i++) {
-          const movieData = await getMovieData(getRandomNumber(10, 300));
-          moviesData.push(movieData);
-        }
-        setMoviesList(moviesData);
+        const topRatedMovies = await getTopRatedMovies();
+        setMovies(topRatedMovies);
       } catch (error) {
-        console.error("Error fetching movies data:", error);
+        console.error("Error fetching movies:", error);
       }
     };
 
     fetchMovies();
   }, []);
 
-  // Lógica para exibir os filmes da página atual
-  const indexOfLastMovie = currentPage * moviesPerPage;
-  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-  const currentMovies = moviesList.slice(indexOfFirstMovie, indexOfLastMovie);
-
-  // Função para alterar a página
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
   return (
     <div>
-      {/* função de exibição dos cards */}
-      {currentMovies.map((movie, index) => (
+      {movies.map((movie, index) => (
         <div key={index}>
           <h2>{movie.title}</h2>
           <p>{movie.overview}</p>
@@ -56,18 +37,6 @@ export default function Card() {
           />
         </div>
       ))}
-
-      {/* Renderizar os botões de página  */}
-      <div>
-        {Array.from(
-          { length: Math.ceil(moviesList.length / moviesPerPage) },
-          (_, i) => (
-            <button key={i + 1} onClick={() => paginate(i + 1)}>
-              {i + 1}
-            </button>
-          )
-        )}
-      </div>
     </div>
   );
 }
