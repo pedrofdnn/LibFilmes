@@ -1,13 +1,11 @@
-import Card from "./Components/card";
-import SearchMovies from "./Components/search";
+import { Routes } from "react-router-dom";
 
 export default function App() {
   return (
     <div>
       <h1>teste</h1>
-
-      <SearchMovies />
-      <Card />
+      <link rel="stylesheet" href="" />
+      <Routes />
     </div>
   );
 }
