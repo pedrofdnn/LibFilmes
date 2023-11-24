@@ -11,8 +11,8 @@ interface Movie {
 export default function Card() {
   const [movies, setMovies] = useState<Movie[]>([]);
 
+  // função que carrega dados da api favoritos
   useEffect(() => {
-    // função que carrega dados da api favoritos
     const fetchMovies = async () => {
       try {
         const topRatedMovies = await getTopRatedMovies();
@@ -27,6 +27,7 @@ export default function Card() {
 
   return (
     <div>
+
       {movies.map((movie, index) => (
         <div key={index}>
           <h2>{movie.title}</h2>
@@ -37,6 +38,7 @@ export default function Card() {
           />
         </div>
       ))}
+      
     </div>
   );
 }

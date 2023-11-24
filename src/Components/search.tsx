@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getMoviesBySearchTerm } from "../API/API";
 
+
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -14,6 +15,7 @@ export default function Search() {
       console.error("Error searching movies:", error);
     }
   };
+
   return (
     <div>
       <input
