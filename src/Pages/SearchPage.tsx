@@ -1,8 +1,8 @@
 export default function SearchPage() {
   return (
     <div>
-      <h1>Pagina de busca</h1>
-      <p>Mostrar o resultado da pesquisa</p>
+      <h1>Resultado da pesquisa.</h1>
+
     </div>
   );
 }

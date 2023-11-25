@@ -32,6 +32,13 @@ const router = createBrowserRouter([
         path: "contact",
         element: <ContactPage />,
       },
+      // filtro de pagina
+      // {
+      //   path: "contact",
+      //   element: <ContactPage />,
+      // },
+
+
     ],
   },
 ]);
