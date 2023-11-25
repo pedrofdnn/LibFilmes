@@ -1,7 +1,10 @@
-import React from 'react'
+
 
 export default function HomePage() {
   return (
-    <div>HomePage</div>
-  )
+    <div>
+      <h1>HomePage</h1>
+      <p>Renderizar todos os filmes favoritos.</p>
+    </div>
+  );
 }
