@@ -1,6 +1,4 @@
-import FooterComponet from "../Components/FooterComponet";
 import Card from "../Components/card";
-import ContactPage from "./Contact";
 
 export default function HomePage() {
   return (

@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 
+import GlobalStyle from "./Styles/StyleGlobal";
+
 // pagina e components
 import ErroPage from "./Pages/ErroPage";
 import SearchPage from "./Pages/SearchPage";
@@ -34,6 +36,6 @@ ReactModal.setAppElement("#root");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <GlobalStyle /> {<RouterProvider router={router} />}
   </React.StrictMode>
 );
