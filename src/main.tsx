@@ -7,6 +7,7 @@ import App from "./App";
 import ErroPage from "./Pages/ErroPage";
 import SearchPage from "./Pages/SearchPage";
 import ContactPage from "./Pages/Contact";
+import ReactModal from "react-modal";
 
 // componente de paginação
 const router = createBrowserRouter([
@@ -21,11 +22,15 @@ const router = createBrowserRouter([
     path: "/search/:query",
     element: <SearchPage />,
   },
+
   {
     path: "contact",
     element: <ContactPage />,
   },
 ]);
+
+// import do modal para não ter erros de leitura de pagina
+ReactModal.setAppElement("#root");
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

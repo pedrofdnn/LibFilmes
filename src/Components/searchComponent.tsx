@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMoviesBySearchTerm } from "../API/API";
 import { useNavigate, useParams } from "react-router-dom";
+import ReactModal from "react-modal";
 
 interface Movie {
   title: string;
@@ -12,11 +13,22 @@ interface SearchComponentProps {
   searchTerm: string;
 }
 
-export default function SearchComponent({ searchTerm: propSearchTerm }: SearchComponentProps) {
-  const { query } = useParams(); // Obtendo o termo de pesquisa da URL
+export default function SearchComponent({
+  searchTerm: propSearchTerm,
+}: SearchComponentProps) {
+  // Obtendo o termo de pesquisa da URL
+  const { query } = useParams();
+
+  // navegação do resultado da pesquisa
   const navigate = useNavigate();
+
+  // lista de busca
   const [searchTerm, setSearchTerm] = useState(propSearchTerm || "");
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
+
+  // modal
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
   // função que carrega os itens da pesquisa
   const handleSearch = async () => {
@@ -28,6 +40,7 @@ export default function SearchComponent({ searchTerm: propSearchTerm }: SearchCo
     }
   };
 
+  // realiza a troca de pagina com os dados baixados
   useEffect(() => {
     if (query) {
       setSearchTerm(query);
@@ -43,6 +56,16 @@ export default function SearchComponent({ searchTerm: propSearchTerm }: SearchCo
     }
   };
 
+  // função para funcionamento do modal
+  const handleOpenModal = (movie: Movie) => {
+    setSelectedMovie(movie);
+    setModalIsOpen(true);
+  };
+  const handleCloseModal = () => {
+    setSelectedMovie(null);
+    setModalIsOpen(false);
+  };
+
   return (
     <div>
       {/* caixa de pesquisa e botão para pesquisa */}
@@ -54,20 +77,33 @@ export default function SearchComponent({ searchTerm: propSearchTerm }: SearchCo
       />
       <button onClick={() => navigate(`/search/${searchTerm}`)}>Search</button>
 
-      {/* campo de informações dos filmes */}
+      {/* campo dos filmes */}
       <div>
         {searchResults.map((movie, index) => (
           <div key={index}>
-            <h2>{movie.title}</h2>
-            <p>{movie.overview}</p>
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.title}
             />
+
+            <button onClick={() => handleOpenModal(movie)}>Abrir Modal</button>
+
+            <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
+              {selectedMovie && (
+                <div>
+                  <h2>{selectedMovie.title}</h2>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+                    alt={selectedMovie.title}
+                  />
+                  <p>{selectedMovie.overview}</p>
+                </div>
+              )}
+              <button onClick={handleCloseModal}>Fechar Modal</button>
+            </ReactModal>
           </div>
         ))}
       </div>
     </div>
   );
 }
- 
