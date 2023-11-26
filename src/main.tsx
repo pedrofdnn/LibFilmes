@@ -7,7 +7,6 @@ import App from "./App";
 import ErroPage from "./Pages/ErroPage";
 import SearchPage from "./Pages/SearchPage";
 import ContactPage from "./Pages/Contact";
-import HomePage from "./Pages/HomePage";
 
 // componente de paginação
 const router = createBrowserRouter([
@@ -16,29 +15,16 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErroPage />,
-
     // componente base para páginas
     children: [
       {
-        path: "/",
-        element: <HomePage />,
-      },
-
-      {
-        path: "search",
+        path: "/search/:query",
         element: <SearchPage />,
       },
       {
         path: "contact",
         element: <ContactPage />,
       },
-      // filtro de pagina
-      // {
-      //   path: "contact",
-      //   element: <ContactPage />,
-      // },
-
-
     ],
   },
 ]);
