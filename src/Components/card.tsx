@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTopRatedMovies } from "../API/API";
+import ReactModal from "react-modal";
 
 interface Movie {
   title: string;
@@ -10,6 +11,10 @@ interface Movie {
 
 export default function Card() {
   const [movies, setMovies] = useState<Movie[]>([]);
+
+  // modal
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
   // função que carrega dados da api favoritos
   useEffect(() => {
@@ -25,9 +30,18 @@ export default function Card() {
     fetchMovies();
   }, []);
 
+  // função para funcionamento do modal
+  const handleOpenModal = (movie: Movie) => {
+    setSelectedMovie(movie);
+    setModalIsOpen(true);
+  };
+  const handleCloseModal = () => {
+    setSelectedMovie(null);
+    setModalIsOpen(false);
+  };
+
   return (
     <div>
-
       {movies.map((movie, index) => (
         <div key={index}>
           <img
@@ -35,10 +49,23 @@ export default function Card() {
             alt={movie.title}
           />
 
-          
+          <button onClick={() => handleOpenModal(movie)}>Abrir Modal</button>
+
+          <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
+            {selectedMovie && (
+              <div>
+                <h2>{selectedMovie.title}</h2>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${selectedMovie.poster_path}`}
+                  alt={selectedMovie.title}
+                />
+                <p>{selectedMovie.overview}</p>
+              </div>
+            )}
+            <button onClick={handleCloseModal}>Fechar Modal</button>
+          </ReactModal>
         </div>
       ))}
-      
     </div>
   );
 }
