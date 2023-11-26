@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getMoviesBySearchTerm } from "../API/API";
+import { useNavigate, useParams } from "react-router-dom";
 
 interface Movie {
   title: string;
@@ -7,25 +8,38 @@ interface Movie {
   poster_path: string;
 }
 
-export default function SearchComponent() {
-  const [searchTerm, setSearchTerm] = useState("");
+interface SearchComponentProps {
+  searchTerm: string;
+}
+
+export default function SearchComponent({ searchTerm: propSearchTerm }: SearchComponentProps) {
+  const { query } = useParams(); // Obtendo o termo de pesquisa da URL
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState(propSearchTerm || "");
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
 
   // função que carrega os itens da pesquisa
-  console.log(searchResults);
   const handleSearch = async () => {
     try {
-      const movies: Movie[] = await getMoviesBySearchTerm(searchTerm); // Definindo o tipo para Movie[]
+      const movies: Movie[] = await getMoviesBySearchTerm(searchTerm);
       setSearchResults(movies);
     } catch (error) {
-      console.error("Error searching movies:", error);
+      console.error("Erro na busca da API.", error);
     }
   };
+
+  useEffect(() => {
+    if (query) {
+      setSearchTerm(query);
+      handleSearch();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
 
   // função de evento da tecla enter
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      handleSearch();
+      navigate(`/search/${searchTerm}`);
     }
   };
 
@@ -38,7 +52,7 @@ export default function SearchComponent() {
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyDown={handleKeyPress}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={() => navigate(`/search/${searchTerm}`)}>Search</button>
 
       {/* campo de informações dos filmes */}
       <div>
@@ -56,3 +70,4 @@ export default function SearchComponent() {
     </div>
   );
 }
+ 

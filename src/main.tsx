@@ -16,16 +16,14 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErroPage />,
     // componente base para páginas
-    children: [
-      {
-        path: "/search/:query",
-        element: <SearchPage />,
-      },
-      {
-        path: "contact",
-        element: <ContactPage />,
-      },
-    ],
+  },
+  {
+    path: "/search/:query",
+    element: <SearchPage />,
+  },
+  {
+    path: "contact",
+    element: <ContactPage />,
   },
 ]);
 
