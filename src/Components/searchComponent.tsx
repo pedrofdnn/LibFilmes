@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getMoviesBySearchTerm } from "../API/API";
 import { useNavigate, useParams } from "react-router-dom";
 import ReactModal from "react-modal";
+import Searchbar from "../Styles/StyleSearch";
 
 interface Movie {
   title: string;
@@ -68,16 +69,22 @@ export default function SearchComponent({
 
   return (
     <div>
-      {/* caixa de pesquisa e botão para pesquisa */}
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        onKeyDown={handleKeyPress}
-      />
-      <button onClick={() => navigate(`/search/${searchTerm}`)}>Search</button>
+      <Searchbar>
+        <div>
+          {/* caixa de pesquisa e botão para pesquisa */}
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyPress}
+          />
+          <button onClick={() => navigate(`/search/${searchTerm}`)}>
+            Search
+          </button>
+        </div>
+      </Searchbar>
 
-      {/* campo dos filmes */}
+      {/* campo das informações dos filmes */}
       <div>
         {searchResults.map((movie, index) => (
           <div key={index}>

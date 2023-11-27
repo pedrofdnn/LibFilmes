@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
+import NavContaine from "../Styles/StyleNav";
 
 export default function NavbarComponet() {
   return (
-    <div>
-      <Link to={`/`}> Home </Link>
-    </div>
+    <NavContaine>
+      <div>
+        <nav>
+          <Link to={`/`}> Home </Link>
+          <Link to={`/contact`}>Contato</Link>
+        </nav>
+      </div>
+    </NavContaine>
   );
 }

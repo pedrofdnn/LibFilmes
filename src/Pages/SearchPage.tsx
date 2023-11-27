@@ -9,6 +9,7 @@ export default function SearchPage() {
     <div>
       <NavbarComponet />
       <h1>Resultado da pesquisa.</h1>
+
       <SearchComponent searchTerm={query || ""} />
     </div>
   );
