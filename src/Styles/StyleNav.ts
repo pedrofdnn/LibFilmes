@@ -5,8 +5,8 @@ const NavContainer = styled.nav`
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 25px;
-    /* position: fixed; */
-    background-color: #b7b7b7;
+    /* position: relative; */
+    background-color: #0a0908;
     font-size: 2rem;
     width: 100%;
 
@@ -15,13 +15,18 @@ const NavContainer = styled.nav`
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;   
+    margin-bottom: 25px;
   }
 
   a {
     padding: 20px;
     text-decoration: none;
     font-weight: bold;
+    color: #b7b7b7;
+    transition: color 0.3s ease;
+    &:hover {
+      color: #2980b9; 
+    }
   }
 `;
 

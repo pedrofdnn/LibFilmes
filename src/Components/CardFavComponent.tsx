@@ -9,7 +9,7 @@ interface Movie {
   // Adicione outras propriedades necessárias conforme a resposta da API
 }
 
-export default function Card() {
+export default function CardFavComponent() {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   // modal

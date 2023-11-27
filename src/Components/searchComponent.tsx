@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMoviesBySearchTerm } from "../API/API";
 import { useNavigate, useParams } from "react-router-dom";
+import { LiaSearchSolid } from "react-icons/lia";
 import ReactModal from "react-modal";
 import Searchbar from "../Styles/StyleSearch";
 
@@ -77,9 +78,10 @@ export default function SearchComponent({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyDown={handleKeyPress}
+            placeholder="Pesquise sobre Filmes"
           />
           <button onClick={() => navigate(`/search/${searchTerm}`)}>
-            Search
+            <LiaSearchSolid />
           </button>
         </div>
       </Searchbar>
