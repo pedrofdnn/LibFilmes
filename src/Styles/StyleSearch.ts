@@ -10,9 +10,8 @@ const Searchbar = styled.div`
     align-content: space-between;
     justify-content: center;
     align-items: center;
-    
 
-    bottom: 73px;
+    bottom: 80px;
     width: 45px;
     left: 50%;
   }
@@ -21,6 +20,7 @@ const Searchbar = styled.div`
     border-radius: 9px 0 0 9px;
     padding: 7px 60px;
     text-align: center;
+    font-size: 16px;
     bottom: 10px;
     border: none;
     &:focus {
@@ -29,7 +29,7 @@ const Searchbar = styled.div`
   }
 
   button {
-    padding: 6.5px;
+    padding: 8px;
     border-radius: 0 5px 5px 0;
     border: none;
     transition: background-color 0.3s ease;

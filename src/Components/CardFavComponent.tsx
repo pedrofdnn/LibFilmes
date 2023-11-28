@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { getTopRatedMovies } from "../API/API";
+import { CardStyled, CardContainer } from "../Styles/StyleCards";
 import ReactModal from "react-modal";
+import Slider from "react-slick";
+
+import "../Styles/slick-theme.css";
+import "../Styles/slick.css";
 
 interface Movie {
   title: string;
@@ -23,7 +28,7 @@ export default function CardFavComponent() {
         const topRatedMovies = await getTopRatedMovies();
         setMovies(topRatedMovies);
       } catch (error) {
-        console.error("Error fetching movies:", error);
+        console.error("Erro na API:", error);
       }
     };
 
@@ -40,16 +45,33 @@ export default function CardFavComponent() {
     setModalIsOpen(false);
   };
 
+  const settings = {
+    dots: true,
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
-    <div>
+    <Slider {...settings}>
       {movies.map((movie, index) => (
         <div key={index}>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            alt={movie.title}
-          />
+          <CardContainer>
+            <CardStyled>
+              <div>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  alt={movie.title}
+                />
 
-          <button onClick={() => handleOpenModal(movie)}>Abrir Modal</button>
+                <button onClick={() => handleOpenModal(movie)}>
+                  Mais Informações
+                </button>
+              </div>
+            </CardStyled>
+          </CardContainer>
 
           <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
             {selectedMovie && (
@@ -66,6 +88,6 @@ export default function CardFavComponent() {
           </ReactModal>
         </div>
       ))}
-    </div>
+    </Slider>
   );
 }

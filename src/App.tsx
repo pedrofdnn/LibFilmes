@@ -4,8 +4,7 @@ import NavbarComponet from "./Components/NavbarComponet";
 import HomePage from "./Pages/HomePage";
 import SearchComponent from "./Components/searchComponent";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 
 export default function App() {
   return (
