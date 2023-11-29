@@ -29,7 +29,7 @@ const Searchbar = styled.div`
   }
 
   button {
-    padding: 8px;
+    padding: 8.8px;
     border-radius: 0 5px 5px 0;
     border: none;
     transition: background-color 0.3s ease;

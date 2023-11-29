@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTopRatedMovies } from "../API/API";
-import { CardStyled, CardContainer } from "../Styles/StyleCards";
+import ContainerGeral from "../Styles/StyleCards";
 import ReactModal from "react-modal";
-
-import "../Styles/slick-theme.css";
-import "../Styles/slick.css";
 
 interface Movie {
   title: string;
@@ -44,23 +41,17 @@ export default function CardFavComponent() {
   };
 
   return (
-    <div>
+    <ContainerGeral>
       {movies.map((movie, index) => (
         <div key={index}>
-          <CardContainer>
-            <CardStyled>
-              <div>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  alt={movie.title}
-                />
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            alt={movie.title}
+          />
 
-                <button onClick={() => handleOpenModal(movie)}>
-                  Mais Informações
-                </button>
-              </div>
-            </CardStyled>
-          </CardContainer>
+          <button onClick={() => handleOpenModal(movie)}>
+            Mais Informações
+          </button>
 
           <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
             {selectedMovie && (
@@ -77,6 +68,6 @@ export default function CardFavComponent() {
           </ReactModal>
         </div>
       ))}
-    </div>
+    </ContainerGeral>
   );
 }

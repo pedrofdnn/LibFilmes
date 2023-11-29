@@ -5,7 +5,9 @@ const GlobalStyle = createGlobalStyle`
 
 body {
   font-family: 'Roboto Condensed', sans-serif;
-  background: url( ${img}) fixed;
+  background: url( ${img});
+  background-size: cover; 
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
 }
@@ -14,7 +16,7 @@ h1 {
   display: flex;
   color: #0a0908;
   justify-content: center;
-  font-size:4rem;
+  font-size:80px;
   align-items: center;
   font-weight: bold;
   margin-top: -50px;

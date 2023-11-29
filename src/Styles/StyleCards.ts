@@ -1,16 +1,18 @@
 import styled from "styled-components";
-import Slider from "react-slick";
 
-const CardContainer = styled.div`
-  div {
-    width: 470px;
-    position: relative;
-    left: 24%;
-  }
+const ContainerGeral = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
 
   button {
-    padding: 10px 120px;
-    margin: 9px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 9px 5px 20px;
     border-radius: 8px;
     border: none;
     background-color: #1abc9c;
@@ -22,39 +24,13 @@ const CardContainer = styled.div`
       background-color: #2980b9;
     }
   }
-`;
 
-const CardStyled = styled.div`
   img {
     display: flex;
-    width: 85%;
+    justify-content: center;
+    width: 45%;
     border-radius: 8px;
   }
-  div {
-    display: flex;
-
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-  }
 `;
 
-const CustomSlider = styled(Slider)`
-  div {
-    display: flex;
-    justify-content: center;
-  }
-
-  .slick-slide {
-    margin-right: 200px;
-  }
-
-  .slick-prev,
-  .slick-next {
-    position: relative;
-    right: -25px;
-    color: red; 
-  }
-`;
-export { CardContainer, CardStyled, CustomSlider };
+export default ContainerGeral;
