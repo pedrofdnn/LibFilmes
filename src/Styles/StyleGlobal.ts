@@ -13,8 +13,16 @@ body {
 }
 
 h1 {
+
+  background: #9C1000;
+  background: repeating-radial-gradient(ellipse farthest-corner at top left, #9C1000 0%, #249FAD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 3px 5px;
+
+
+  font-family: 'Lobster', sans-serif;
   display: flex;
-  color: #0a0908;
   justify-content: center;
   font-size:80px;
   align-items: center;

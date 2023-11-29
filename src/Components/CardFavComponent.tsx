@@ -44,14 +44,16 @@ export default function CardFavComponent() {
     <ContainerGeral>
       {movies.map((movie, index) => (
         <div key={index}>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            alt={movie.title}
-          />
+          <div>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt={movie.title}
+            />
 
-          <button onClick={() => handleOpenModal(movie)}>
-            Mais Informações
-          </button>
+            <button onClick={() => handleOpenModal(movie)}>
+              Mais Informações
+            </button>
+          </div>
 
           <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
             {selectedMovie && (
