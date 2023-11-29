@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getTopRatedMovies } from "../API/API";
 import { CardStyled, CardContainer } from "../Styles/StyleCards";
 import ReactModal from "react-modal";
-import Slider from "react-slick";
 
 import "../Styles/slick-theme.css";
 import "../Styles/slick.css";
@@ -11,7 +10,6 @@ interface Movie {
   title: string;
   overview: string;
   poster_path: string;
-  // Adicione outras propriedades necessárias conforme a resposta da API
 }
 
 export default function CardFavComponent() {

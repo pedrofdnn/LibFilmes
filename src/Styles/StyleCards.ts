@@ -54,7 +54,7 @@ const CustomSlider = styled(Slider)`
   .slick-next {
     position: relative;
     right: -25px;
-    color: red; /* Alterando a cor das setas de navegação */
+    color: red; 
   }
 `;
 export { CardContainer, CardStyled, CustomSlider };

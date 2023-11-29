@@ -5,7 +5,6 @@ const NavContainer = styled.nav`
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 25px;
-    /* position: relative; */
     background-color: #0a0908;
     font-size: 2rem;
     width: 100%;
