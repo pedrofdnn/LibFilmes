@@ -45,17 +45,8 @@ export default function CardFavComponent() {
     setModalIsOpen(false);
   };
 
-  const settings = {
-    dots: true,
-    fade: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
   return (
-    <Slider {...settings}>
+    <div>
       {movies.map((movie, index) => (
         <div key={index}>
           <CardContainer>
@@ -88,6 +79,6 @@ export default function CardFavComponent() {
           </ReactModal>
         </div>
       ))}
-    </Slider>
+    </div>
   );
 }
