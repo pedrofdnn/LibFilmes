@@ -8,7 +8,7 @@ const ContainerGeral = styled.div`
   grid-row-gap: 0px;
 
   button {
-    margin: 5px 10px 25px;
+    margin: 9px 10px 25px;
     box-shadow: 3px 4px 0px 0px #899599;
     background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
     background-color: #ededed;
@@ -42,4 +42,12 @@ const ContainerGeral = styled.div`
   }
 `;
 
-export default ContainerGeral;
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+`;
+
+export { ContainerGeral, CardContainer };

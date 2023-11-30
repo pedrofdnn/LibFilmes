@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTopRatedMovies } from "../API/API";
-import ContainerGeral from "../Styles/StyleCards";
+import { ContainerGeral, CardContainer } from "../Styles/StyleCards";
 import ReactModal from "react-modal";
 
 interface Movie {
@@ -44,7 +44,7 @@ export default function CardFavComponent() {
     <ContainerGeral>
       {movies.map((movie, index) => (
         <div key={index}>
-          <div>
+          <CardContainer>
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.title}
@@ -53,7 +53,7 @@ export default function CardFavComponent() {
             <button onClick={() => handleOpenModal(movie)}>
               Mais Informações
             </button>
-          </div>
+          </CardContainer>
 
           <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
             {selectedMovie && (

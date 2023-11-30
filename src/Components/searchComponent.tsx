@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { LiaSearchSolid } from "react-icons/lia";
 import ReactModal from "react-modal";
 import Searchbar from "../Styles/StyleSearch";
+import { CardContainer } from "../Styles/StyleCards";
 
 interface Movie {
   title: string;
@@ -90,12 +91,18 @@ export default function SearchComponent({
       <div>
         {searchResults.map((movie, index) => (
           <div key={index}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-              alt={movie.title}
-            />
 
-            <button onClick={() => handleOpenModal(movie)}>Abrir Modal</button>
+            <CardContainer>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                alt={movie.title}
+              />
+
+              <button onClick={() => handleOpenModal(movie)}>
+                Mais Informações
+              </button>
+            </CardContainer>
+
 
             <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
               {selectedMovie && (
