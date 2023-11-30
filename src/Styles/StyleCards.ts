@@ -39,6 +39,7 @@ const ContainerGeral = styled.div`
     justify-content: center;
     width: 55%;
     border-radius: 8px;
+    box-shadow: 5px 3px;
   }
 `;
 
@@ -47,6 +48,7 @@ const CardContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
   
 `;
 
