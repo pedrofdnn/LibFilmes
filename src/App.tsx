@@ -9,10 +9,7 @@ export default function App() {
   return (
     <div>
       <NavbarComponet />
-
       <SearchComponent searchTerm={""} />
-
-      <HomePage />
       <Outlet />
     </div>
   );

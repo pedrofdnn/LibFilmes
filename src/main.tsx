@@ -4,12 +4,12 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import GlobalStyle from "./Styles/StyleGlobal";
 
-
 // pagina e components
 import ErroPage from "./Pages/ErroPage";
 import SearchPage from "./Pages/SearchPage";
 import ContactPage from "./Pages/Contact";
 import ReactModal from "react-modal";
+import HomePage from "./Pages/HomePage";
 
 // componente de paginação
 const router = createBrowserRouter([
@@ -19,17 +19,25 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErroPage />,
     // componente base para páginas
-  },
-  {
-    path: "/search/:query",
-    element: <SearchPage />,
-  },
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/search/:query",
+        element: <SearchPage />,
+      },
 
-  {
-    path: "contact",
-    element: <ContactPage />,
+      {
+        path: "contact",
+        element: <ContactPage />,
+      },
+    ],
   },
 ]);
+
+
 
 // import do modal para não ter erros de leitura de pagina
 ReactModal.setAppElement("#root");

@@ -7,7 +7,7 @@ export default function HomePage() {
         <GiFilmStrip />
         Lib Movies
       </h1>
-      <CardFavComponent />
+      {/* <CardFavComponent /> */}
     </div>
   );
 }
