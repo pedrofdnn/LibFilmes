@@ -37,8 +37,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-
-
 // import do modal para não ter erros de leitura de pagina
 ReactModal.setAppElement("#root");
 

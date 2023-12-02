@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
-import NavContaine from "../Styles/StyleNav";
+import NavContainer from "../Styles/StyleNav";
 
-export default function NavbarComponet() {
+export default function NavbarComponent() {
   return (
-    <NavContaine>
-      <div>
-        <nav>
-          <Link to={`/`}> Home </Link>
-          <Link to={`/contact`}>Contato</Link>
-        </nav>
-      </div>
-    </NavContaine>
+    <NavContainer>
+      <nav>
+        <Link to="/">Home</Link>
+        <div>
+          <input type="text" />
+          <button type="submit">P</button>
+          <Link to="/contact">Contato</Link>
+        </div>
+      </nav>
+    </NavContainer>
   );
 }
