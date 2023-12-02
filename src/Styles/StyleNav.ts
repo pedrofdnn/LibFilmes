@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 const NavContainer = styled.nav`
   nav {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 25px;
+    
+    margin-bottom: 5px;
     background-color: #0a0908;
     font-size: 2rem;
     width: 100%;
@@ -14,7 +13,7 @@ const NavContainer = styled.nav`
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    
   }
 
   a {
@@ -24,9 +23,34 @@ const NavContainer = styled.nav`
     color: #b7b7b7;
     transition: color 0.3s ease;
     &:hover {
-      color: #2980b9; 
+      color: #2980b9;
     }
   }
 `;
 
-export default NavContainer;
+const Searchbar = styled.div`
+  display: flex;
+  input {
+    border-radius: 9px 0 0 9px;
+    padding: 7px 60px;
+    text-align: center;
+    font-size: 16px;
+    bottom: 10px;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    padding: 8.8px;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+`;
+
+export { NavContainer, Searchbar };

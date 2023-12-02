@@ -13,21 +13,19 @@ body {
 }
 
 h1 {
+  padding-right: 30px;
+  margin: 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:80px;
+  font-family: 'Lobster', sans-serif;
 
   background: #9C1000;
   background: repeating-radial-gradient(ellipse farthest-corner at top left, #9C1000 0%, #249FAD 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 3px 5px;
-
-
-  font-family: 'Lobster', sans-serif;
-  display: flex;
-  justify-content: center;
-  font-size:80px;
-  align-items: center;
-  font-weight: bold;
-  margin-top: -50px;
 }
 `;
 
