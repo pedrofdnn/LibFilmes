@@ -1,23 +1,44 @@
-import { useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { NavContainer, Searchbar } from "../Styles/StyleNav";
 import { LiaSearchSolid } from "react-icons/lia";
 
-// import getTopRatedMovies from "../API/API";
+// API
+import { getTopRatedMovies, getMoviesBySearchTerm } from "../API/API";
+
+interface Movie {
+  title: string;
+  overview: string;
+  poster_path: string;
+}
 
 export default function NavbarComponent() {
+  const [searchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState<Movie[]>([]);
   const [changeClick, setChangeClick] = useState("");
 
+  useEffect(() => {
+    const fetchSearchResults = async () => {
+      const results = await getMoviesBySearchTerm(searchTerm);
+      setSearchResults(results);
+    };
+    fetchSearchResults();
+  }, [searchTerm]);
+
   // evento de checagem do enter e click
-  function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
+  async function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       e.preventDefault();
-      alert(`O valor digitado foi: ${changeClick}`);
+      const results = await getMoviesBySearchTerm(changeClick);
+      setSearchResults(results);
     }
   }
-  function handleClick() {
-    alert(`O valor digitado foi: ${changeClick}`);
+
+  async function handleClick() {
+    const result = await getMoviesBySearchTerm(changeClick);
+    setSearchResults(result);
   }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setChangeClick(e.target.value);
   }
@@ -43,6 +64,19 @@ export default function NavbarComponent() {
 
         <Link to="/contact">Contato</Link>
       </nav>
+
+      <div>
+        <ul>
+          {searchResults.map((Movie, index) => (
+            <li key={index}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${Movie.poster_path}`}
+                alt={Movie.title}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </NavContainer>
   );
 }

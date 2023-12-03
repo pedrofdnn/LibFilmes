@@ -12,7 +12,7 @@ const LANGUAGE = "?language=pt-BR";
 
 let topRatedMovies: Movie[] = [];
 
-// função que pega pagina dos melhores filmes
+// função que pega os dados dos melhores filmes
 export const getTopRatedMovies = async (): Promise<Movie[]> => {
   try {
     if (topRatedMovies.length === 0) {
