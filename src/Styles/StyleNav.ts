@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const NavContainer = styled.nav`
   nav {
-    
     margin-bottom: 5px;
     background-color: #0a0908;
     font-size: 2rem;
@@ -13,7 +12,6 @@ const NavContainer = styled.nav`
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    
   }
 
   a {
@@ -35,7 +33,6 @@ const Searchbar = styled.div`
     padding: 7px 60px;
     text-align: center;
     font-size: 16px;
-    /* bottom: 10px; */
     border: none;
     &:focus {
       outline: none;

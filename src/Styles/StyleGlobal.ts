@@ -14,7 +14,7 @@ body {
 
 h1 {
   padding-right: 30px;
-  margin: 0 0 10px;
+  margin: 0 0 20px;
   display: flex;
   justify-content: center;
   align-items: center;

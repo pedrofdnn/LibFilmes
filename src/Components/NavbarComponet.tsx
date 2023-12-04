@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { NavContainer, Searchbar } from "../Styles/StyleNav";
 import { LiaSearchSolid } from "react-icons/lia";
 
@@ -13,8 +13,8 @@ interface Movie {
 }
 
 export default function NavbarComponent() {
+  const history = useNavigate();
   const [searchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState<Movie[]>([]);
   const [changeClick, setChangeClick] = useState("");
 
   // evento de armazenamentos de dados da busca
@@ -31,13 +31,13 @@ export default function NavbarComponent() {
     if (e.key === "Enter") {
       e.preventDefault();
       const results = await getMoviesBySearchTerm(changeClick);
-      setSearchResults(results);
+
+      history(`/search/${changeClick}`, { state: { searchResults: results } });
     }
   }
   async function handleClick() {
     const result = await getMoviesBySearchTerm(changeClick);
-    setSearchResults(result);
-    
+    history(`/search/${changeClick}`, { state: { searchResults: result } });
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setChangeClick(e.target.value);
@@ -47,7 +47,6 @@ export default function NavbarComponent() {
     <NavContainer>
       <nav>
         <Link to="/">Home</Link>
-
         <Searchbar>
           <input
             type="text"
@@ -61,22 +60,8 @@ export default function NavbarComponent() {
             <LiaSearchSolid />
           </button>
         </Searchbar>
-
         <Link to="/contact">Contato</Link>
       </nav>
-
-      <div>
-        <ul>
-          {searchResults.map((Movie, index) => (
-            <li key={index}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${Movie.poster_path}`}
-                alt={Movie.title}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
     </NavContainer>
   );
 }

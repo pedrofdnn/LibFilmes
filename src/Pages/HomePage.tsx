@@ -12,7 +12,7 @@ interface Movie {
 export default function HomePage() {
   const [topMovies, setTopMovies] = useState<Movie[]>([]);
 
-  // armazena os dados dostopMovies
+  // armazena os dados dos topMovies
   useEffect(() => {
     const fetchMovies = async () => {
       const results = await getTopRatedMovies();
@@ -35,6 +35,9 @@ export default function HomePage() {
               src={`https://image.tmdb.org/t/p/w500/${Movie.poster_path}`}
               alt={Movie.title}
             />
+            <button>
+              Mais Detalhes
+            </button>
           </CardContainer>
         ))}
       </ContainerGeral>
