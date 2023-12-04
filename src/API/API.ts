@@ -28,7 +28,7 @@ export const getTopRatedMovies = async (): Promise<Movie[]> => {
     }
     return topRatedMovies;
   } catch (error) {
-    console.error("Erro de busca dos favoritos na API.", error);
+    console.error("Erro de busca dos Mais Votados na API.", error);
     throw error;
   }
 };

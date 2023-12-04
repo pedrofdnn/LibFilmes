@@ -35,7 +35,7 @@ const Searchbar = styled.div`
     padding: 7px 60px;
     text-align: center;
     font-size: 16px;
-    bottom: 10px;
+    /* bottom: 10px; */
     border: none;
     &:focus {
       outline: none;

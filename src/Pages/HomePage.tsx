@@ -1,21 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GiFilmStrip } from "react-icons/gi";
 import { getTopRatedMovies } from "../API/API";
-import CardFavComponent from "../Components/CardFavComponent";
+import { CardContainer, ContainerGeral } from "../Styles/StyleCards";
+
+interface Movie {
+  title: string;
+  overview: string;
+  poster_path: string;
+}
 
 export default function HomePage() {
-  // const [movies, setMovies] = useState<Movie[]>([]);
+  const [topMovies, setTopMovies] = useState<Movie[]>([]);
 
-  //   // função que carrega dados da api favoritos
-  // useEffect(() => {
-  //   const fetchMovies = async () => {
-  //     try {
-  //       const topRatedMovies = await getTopRatedMovies();
-  //       setMovies(topRatedMovies);
-  //     } catch (error) {
-  //       console.error("Erro na API:", error);
-  //     }
-  //   };
+  // armazena os dados dostopMovies
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const results = await getTopRatedMovies();
+      setTopMovies(results);
+    };
+    fetchMovies();
+  }, [topMovies]);
 
   return (
     <div>
@@ -23,6 +27,17 @@ export default function HomePage() {
         <GiFilmStrip />
         Lib Movies
       </h1>
+
+      <ContainerGeral>
+        {topMovies.map((Movie, index) => (
+          <CardContainer key={index}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${Movie.poster_path}`}
+              alt={Movie.title}
+            />
+          </CardContainer>
+        ))}
+      </ContainerGeral>
     </div>
   );
 }

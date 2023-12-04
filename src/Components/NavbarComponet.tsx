@@ -1,10 +1,10 @@
-import { Key, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import { NavContainer, Searchbar } from "../Styles/StyleNav";
 import { LiaSearchSolid } from "react-icons/lia";
 
 // API
-import { getTopRatedMovies, getMoviesBySearchTerm } from "../API/API";
+import { getMoviesBySearchTerm } from "../API/API";
 
 interface Movie {
   title: string;
@@ -17,6 +17,7 @@ export default function NavbarComponent() {
   const [searchResults, setSearchResults] = useState<Movie[]>([]);
   const [changeClick, setChangeClick] = useState("");
 
+  // evento de armazenamentos de dados da busca
   useEffect(() => {
     const fetchSearchResults = async () => {
       const results = await getMoviesBySearchTerm(searchTerm);
@@ -33,12 +34,11 @@ export default function NavbarComponent() {
       setSearchResults(results);
     }
   }
-
   async function handleClick() {
     const result = await getMoviesBySearchTerm(changeClick);
     setSearchResults(result);
+    
   }
-
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setChangeClick(e.target.value);
   }
