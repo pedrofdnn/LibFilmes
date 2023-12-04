@@ -6,6 +6,7 @@ const NavContainer = styled.nav`
     background-color: #0a0908;
     font-size: 2rem;
     width: 100%;
+    position: fixed;
 
     display: flex;
     flex-direction: row;

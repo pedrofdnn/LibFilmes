@@ -1,4 +1,5 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { CardContainer, ContainerGeral } from "../Styles/StyleCards";
 
 interface Movie {
   title: string;
@@ -13,16 +14,17 @@ export default function SearchPage() {
   return (
     <div>
       <h1>Resultado da Pesquisa</h1>
-      <ul>
+      <ContainerGeral>
         {searchResults?.map((movie, index) => (
-          <li key={index}>
+          <CardContainer key={index}>
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.title}
             />
-          </li>
+            <button> Mais Detalhes</button>
+          </CardContainer>
         ))}
-      </ul>
+      </ContainerGeral>
     </div>
   );
 }
