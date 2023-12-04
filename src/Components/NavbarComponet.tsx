@@ -15,11 +15,13 @@ export default function NavbarComponent() {
       const results = await getMoviesBySearchTerm(changeClick);
 
       history(`/search/${changeClick}`, { state: { searchResults: results } });
+      setChangeClick("");
     }
   }
   async function handleClick() {
     const result = await getMoviesBySearchTerm(changeClick);
     history(`/search/${changeClick}`, { state: { searchResults: result } });
+    setChangeClick("");
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setChangeClick(e.target.value);

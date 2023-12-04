@@ -14,7 +14,7 @@ body {
 
 h1 {
   padding:80px 30px 0 0;
-  margin: 0 0 20px;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,6 +26,16 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 3px 5px;
+ 
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 30px;
+  font-size:30px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 `;
 

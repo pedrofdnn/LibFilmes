@@ -1,4 +1,3 @@
-import NavbarComponet from "../Components/NavbarComponet";
 
 export default function ContactPage() {
   return (
