@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  padding:80px 30px 0 0;
+  padding:80px 30px 20px 0;
   margin: 0;
   display: flex;
   justify-content: center;

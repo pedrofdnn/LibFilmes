@@ -5,6 +5,7 @@ export default function App() {
   return (
     <div>      
         <NavbarComponet />
+        
         <Outlet />      
     </div>
   );

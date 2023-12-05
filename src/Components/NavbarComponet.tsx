@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { NavContainer, Searchbar } from "../Styles/StyleNav";
 import { LiaSearchSolid } from "react-icons/lia";
 import { getMoviesBySearchTerm } from "../API/API";
+import { NavContainer, Searchbar } from "../Styles/StyleNav";
 
 export default function NavbarComponent() {
   const history = useNavigate();
@@ -13,14 +13,18 @@ export default function NavbarComponent() {
     if (e.key === "Enter") {
       e.preventDefault();
       const results = await getMoviesBySearchTerm(changeClick);
-
+      // função que muda direciona a pagina quando clica
       history(`/search/${changeClick}`, { state: { searchResults: results } });
+
+      // reset o input
       setChangeClick("");
     }
   }
   async function handleClick() {
     const result = await getMoviesBySearchTerm(changeClick);
+    // função que muda direciona a pagina quando clica
     history(`/search/${changeClick}`, { state: { searchResults: result } });
+    // reset o input
     setChangeClick("");
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {

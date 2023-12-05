@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 
-interface Movie {
+export interface Movie {
   title: string;
   overview: string;
   poster_path: string;
@@ -9,6 +9,7 @@ interface Movie {
 const API_KEY = "9b6485a98f1d2b58864153d53d56cd51";
 const BASE_URL = "https://api.themoviedb.org/3/";
 const LANGUAGE = "?language=pt-BR";
+
 
 let topRatedMovies: Movie[] = [];
 
