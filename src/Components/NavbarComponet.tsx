@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LiaSearchSolid } from "react-icons/lia";
-import { getMoviesBySearchTerm } from "../API/API";
+import { getAllMoviesBySearchTerm } from "../API/API";
 import { NavContainer, Searchbar } from "../Styles/StyleNav";
 
 export default function NavbarComponent() {
@@ -12,7 +12,7 @@ export default function NavbarComponent() {
   async function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       e.preventDefault();
-      const results = await getMoviesBySearchTerm(changeClick);
+      const results = await getAllMoviesBySearchTerm(changeClick);
       // função que muda direciona a pagina quando clica
       history(`/search/${changeClick}`, { state: { searchResults: results } });
 
@@ -21,9 +21,9 @@ export default function NavbarComponent() {
     }
   }
   async function handleClick() {
-    const result = await getMoviesBySearchTerm(changeClick);
+    const results = await getAllMoviesBySearchTerm(changeClick);
     // função que muda direciona a pagina quando clica
-    history(`/search/${changeClick}`, { state: { searchResults: result } });
+    history(`/search/${changeClick}`, { state: { searchResults: results } });
     // reset o input
     setChangeClick("");
   }

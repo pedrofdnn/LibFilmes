@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GiFilmStrip } from "react-icons/gi";
-import { getTopRatedMovies } from "../API/API";
+import { getAllMovies } from "../API/API";
 import { CardContainer, ContainerGeral } from "../Styles/StyleCards";
 import ReactModal from "react-modal";
 import ModalContainer from "../Styles/StyleModal";
@@ -21,7 +21,7 @@ export default function HomePage() {
   // armazena os dados dos topMovies
   useEffect(() => {
     const fetchMovies = async () => {
-      const results = await getTopRatedMovies();
+      const results = await getAllMovies();
       setTopMovies(results);
     };
     fetchMovies();
@@ -55,19 +55,7 @@ export default function HomePage() {
               Mais Detalhes
             </button>
 
-            <ReactModal
-              isOpen={modalIsOpen}
-              onRequestClose={handleCloseModal}
-              
-              style={{
-                overlay: {
-                  backgroundColor: "papayawhip",
-                },
-                content: {
-                  color: "lightsteelblue",
-                },
-              }}
-            >
+            <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
               {selectedMovie && (
                 <div>
                   <h2>{selectedMovie.title}</h2>
