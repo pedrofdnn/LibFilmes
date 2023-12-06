@@ -16,7 +16,7 @@ const LANGUAGE = "?language=pt-BR";
 export const getAllMovies = async (): Promise<Movie[]> => {
   try {
     const allMovies: Movie[] = [];
-    const maxPages = 10; // Definindo um máximo de 10 páginas a serem buscadas
+    const maxPages = 20; // Definindo um máximo de 10 páginas a serem buscadas
     for (let currentPage = 1; currentPage <= maxPages; currentPage++) {
       const response: AxiosResponse = await axios.get(
         `${BASE_URL}/movie/top_rated${LANGUAGE}`,
@@ -49,11 +49,11 @@ export const getAllMoviesBySearchTerm = async (
   searchTerm: string
 ): Promise<Movie[]> => {
   const allResults: Movie[] = [];
+  const maxPages = 20; // Defina o número máximo de páginas a serem buscadas
   let currentPage = 1;
-  let totalPages = 5;
 
   try {
-    while (currentPage <= totalPages) {
+    for (currentPage = 1; currentPage <= maxPages; currentPage++) {
       const response = await axios.get(`${BASE_URL}/search/movie${LANGUAGE}`, {
         params: {
           api_key: API_KEY,
@@ -64,8 +64,11 @@ export const getAllMoviesBySearchTerm = async (
 
       const { results, total_pages } = response.data;
       allResults.push(...results);
-      totalPages = total_pages;
-      currentPage++;
+
+      // Se não houver mais resultados ou atingiu o limite de páginas, saia do loop
+      if (currentPage >= total_pages || currentPage >= maxPages) {
+        break;
+      }
     }
 
     return allResults;

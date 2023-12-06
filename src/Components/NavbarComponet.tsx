@@ -18,6 +18,9 @@ export default function NavbarComponent() {
 
       // reset o input
       setChangeClick("");
+
+      // Rolar a página para o topo
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
   async function handleClick() {
@@ -26,6 +29,7 @@ export default function NavbarComponent() {
     history(`/search/${changeClick}`, { state: { searchResults: results } });
     // reset o input
     setChangeClick("");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setChangeClick(e.target.value);

@@ -32,7 +32,7 @@ h1 {
 p {
   display: flex;
   justify-content: center;
-  margin: 0 0 30px;
+  margin:0 0 6px;
   font-size:30px;
   font-weight: bold;
   text-transform: uppercase;

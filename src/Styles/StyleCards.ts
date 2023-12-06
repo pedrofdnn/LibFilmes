@@ -43,13 +43,24 @@ const ContainerGeral = styled.div`
   }
 `;
 
+const SpinnerLoad = styled.div`
+  display: flex;
+  padding: 13px;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  span {
+    padding: 15px;
+  }
+`;
+
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  
 `;
 
-export { ContainerGeral, CardContainer };
+export { ContainerGeral, CardContainer, SpinnerLoad };
