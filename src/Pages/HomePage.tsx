@@ -4,12 +4,12 @@ import { getAllMovies } from "../API/API";
 import { CardContainer, ContainerGeral } from "../Styles/StyleCards";
 import ReactModal from "react-modal";
 import ModalContainer from "../Styles/StyleModal";
+import ModalComponent from "../Components/ModalComponent";
 
 interface Movie {
   title: string;
   overview: string;
   poster_path: string;
-  release_date?: number;
 }
 
 export default function HomePage() {
@@ -18,7 +18,7 @@ export default function HomePage() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
-  // armazena os dados dos topMovies
+  // troca os dados dos topMovies
   useEffect(() => {
     const fetchMovies = async () => {
       const results = await getAllMovies();
@@ -54,18 +54,18 @@ export default function HomePage() {
             <button onClick={() => handleOpenModal(Movie)}>
               Mais Detalhes
             </button>
-
-            <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
-              {selectedMovie && (
-                <div>
-                  <h2>{selectedMovie.title}</h2>
-                  <h3>Data de Lançamento: {selectedMovie.release_date}</h3>
-                  <span>{selectedMovie.overview}</span>
-                </div>
-              )}
-            </ReactModal>
           </CardContainer>
         ))}
+
+        <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
+          {selectedMovie && (
+            <ModalComponent
+              movie={selectedMovie}
+              isOpen={modalIsOpen}
+              onRequestClose={handleCloseModal}
+            />
+          )}
+        </ReactModal>
       </ContainerGeral>
     </div>
   );
