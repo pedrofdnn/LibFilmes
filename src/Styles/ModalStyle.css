@@ -4,9 +4,9 @@
   left: 40px;
   right: 40px;
   bottom: 40px;
-  border: 1px solid;
-  background-color: #f5ebe0;
-  border-radius: 20px;
+  border: 1px;
+  background-color: #181d27;
+  border-radius: 9px;
   padding: 20px;
 }
 .modal-overlay {
@@ -15,32 +15,63 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #504b69;
+  background-color: rgb(255, 239, 239, 0.1);
 }
 
 .container-geral {
   display: flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .container-title {
   display: flex;
-  margin: 60px;
+  margin: 30px;
   align-items: center;
   flex-direction: column;
+  color: #ced4da;
+  padding: 15px;
 }
 
 .container-resume {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-around;
-  margin: 50px;
-  padding: 64px 0 0 0;
+  flex-direction: column-reverse;
+  margin: 0 60px 5px;
+  padding: 5px 10px 10px 10px;
   text-align: justify;
   font-weight: bold;
-  
+  color: #ced4da;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
 }
 
 .closeButton {
+  margin: 9px 10px 25px;
+  box-shadow: 3px 4px 0px 0px #899599;
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
+  cursor: pointer;
+  color: #0a0908;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #e1e2ed;
+  background-color: #1abc9c;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+    background-color: #bab1ba;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
 }

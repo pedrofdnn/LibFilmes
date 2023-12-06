@@ -3,7 +3,6 @@ import { GiFilmStrip } from "react-icons/gi";
 import { getAllMovies } from "../API/API";
 import { CardContainer, ContainerGeral } from "../Styles/StyleCards";
 import ReactModal from "react-modal";
-import ModalContainer from "../Styles/StyleModal";
 import ModalComponent from "../Components/ModalComponent";
 
 interface Movie {
