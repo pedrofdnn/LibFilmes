@@ -30,9 +30,13 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
                 alt={movie.title}
               />
             </div>
-            <span>{movie.overview}</span>
-            <p> Lançamento: {movie.release_date}</p>
-            <button onClick={onRequestClose}>Fechar</button>
+            <div className="container-resume">
+              <span>{movie.overview}</span>
+              <p> Lançamento: {movie.release_date}</p>
+              <button className="closeButton" onClick={onRequestClose}>
+                Fechar
+              </button>
+            </div>
           </div>
         )}
       </ReactModal>
