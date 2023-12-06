@@ -1,6 +1,7 @@
 import ReactModal from "react-modal";
 import { Movie } from "../API/API";
 import "../Styles/ModalStyle.css";
+import { format } from "date-fns";
 
 interface ModalComponentProps {
   movie: Movie;
@@ -13,6 +14,11 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
   isOpen,
   onRequestClose,
 }) => {
+  //converte o formato da data
+  const formattedReleaseDate = movie.release_date
+    ? format(new Date(movie.release_date), "dd-MM-yyyy")
+    : "";
+
   return (
     <div>
       <ReactModal
@@ -33,7 +39,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
 
             <div className="container-resume">
               <span>{movie.overview}</span>
-              <p> Lançamento: {movie.release_date}</p>
+              <p> Lançamento: {formattedReleaseDate}</p>
             </div>
             <button className="closeButton" onClick={onRequestClose}>
               Fechar
