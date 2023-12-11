@@ -14,6 +14,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
   isOpen,
   onRequestClose,
 }) => {
+  
   //converte o formato da data
   const formattedReleaseDate = movie.release_date
     ? format(new Date(movie.release_date), "dd-MM-yyyy")

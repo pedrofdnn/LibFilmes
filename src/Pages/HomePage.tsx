@@ -13,24 +13,58 @@ interface Movie {
 
 export default function HomePage() {
   const [topMovies, setTopMovies] = useState<Movie[]>([]);
-  // modal
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+  const [page, setPage] = useState(1); // Página atual
+  const [loading, setLoading] = useState(false); // Estado para indicar carregamento
 
-  // troca os dados dos topMovies
   useEffect(() => {
-    const fetchMovies = async () => {
-      const results = await getAllMovies();
-      setTopMovies(results);
+    const loadMoreMovies = async () => {
+      setLoading(true);
+      try {
+        const newMovies = await getAllMovies(page);
+        setTopMovies((prevMovies) => [...prevMovies, ...newMovies]);
+        setPage((prevPage) => prevPage + 1);
+      } catch (error) {
+        console.error("Erro ao buscar filmes.", error);
+      } finally {
+        setLoading(false);
+      }
     };
-    fetchMovies();
-  }, [topMovies]);
 
-  // função de abertura e fechamento do Modal
+    const handleScroll = () => {
+      const distanceToBottom =
+        document.documentElement.offsetHeight -
+        (window.innerHeight + document.documentElement.scrollTop);
+
+      if (distanceToBottom < 100 && distanceToBottom > 0 && !loading) {
+        loadMoreMovies();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [loading, page]);
+
+  useEffect(() => {
+    const fetchInitialMovies = async () => {
+      try {
+        const results = await getAllMovies(page);
+        setTopMovies(results);
+      } catch (error) {
+        console.error("Erro ao buscar filmes.", error);
+      }
+    };
+    fetchInitialMovies();
+  }, []);
+
   const handleOpenModal = (movie: Movie) => {
     setSelectedMovie(movie);
     setModalIsOpen(true);
   };
+
   const handleCloseModal = () => {
     setSelectedMovie(null);
     setModalIsOpen(false);
@@ -44,28 +78,28 @@ export default function HomePage() {
       </h1>
 
       <ContainerGeral>
-        {topMovies.map((Movie, index) => (
+        {topMovies.map((movie, index) => (
           <CardContainer key={index}>
             <img
-              src={`https://image.tmdb.org/t/p/w500/${Movie.poster_path}`}
-              alt={Movie.title}
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt={movie.title}
             />
-            <button onClick={() => handleOpenModal(Movie)}>
+            <button onClick={() => handleOpenModal(movie)}>
               Mais Detalhes
             </button>
           </CardContainer>
         ))}
-
-        <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
-          {selectedMovie && (
-            <ModalComponent
-              movie={selectedMovie}
-              isOpen={modalIsOpen}
-              onRequestClose={handleCloseModal}
-            />
-          )}
-        </ReactModal>
       </ContainerGeral>
+
+      <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
+        {selectedMovie && (
+          <ModalComponent
+            movie={selectedMovie}
+            isOpen={modalIsOpen}
+            onRequestClose={handleCloseModal}
+          />
+        )}
+      </ReactModal>
     </div>
   );
 }

@@ -13,33 +13,22 @@ const BASE_URL = "https://api.themoviedb.org/3/";
 const LANGUAGE = "?language=pt-BR";
 
 // função que pega os dados dos melhores filmes
-export const getAllMovies = async (): Promise<Movie[]> => {
+export const getAllMovies = async (page: number): Promise<Movie[]> => {
   try {
-    const allMovies: Movie[] = [];
-    const maxPages = 20; // Definindo um máximo de 10 páginas a serem buscadas
-    for (let currentPage = 1; currentPage <= maxPages; currentPage++) {
-      const response: AxiosResponse = await axios.get(
-        `${BASE_URL}/movie/top_rated${LANGUAGE}`,
-        {
-          params: {
-            api_key: API_KEY,
-            page: currentPage,
-          },
-        }
-      );
-
-      const moviesInPage: Movie[] = response.data.results;
-      allMovies.push(...moviesInPage);
-
-      // Se não houver mais resultados, saia do loop
-      if (currentPage >= response.data.total_pages) {
-        break;
+    const response: AxiosResponse = await axios.get(
+      `${BASE_URL}/movie/top_rated${LANGUAGE}`,
+      {
+        params: {
+          api_key: API_KEY,
+          page: page,
+        },
       }
-    }
+    );
 
-    return allMovies;
+    const moviesInPage: Movie[] = response.data.results;
+    return moviesInPage;
   } catch (error) {
-    console.error("Erro ao buscar filmes.", error);
+    console.error("Erro com a API dos filmes favoritos.", error);
     throw error;
   }
 };
@@ -49,7 +38,7 @@ export const getAllMoviesBySearchTerm = async (
   searchTerm: string
 ): Promise<Movie[]> => {
   const allResults: Movie[] = [];
-  const maxPages = 20; // Defina o número máximo de páginas a serem buscadas
+  const maxPages = 40; // Defina o número máximo de páginas a serem buscadas
   let currentPage = 1;
 
   try {

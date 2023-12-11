@@ -22,7 +22,6 @@ export default function SearchPage() {
   const [searchResults, setSearchResults] = useState<Movie[] | undefined>();
   const [loading, setLoading] = useState(false);
 
-  const location = useLocation();
   const params = useParams<{ query: string }>();
 
   useEffect(() => {
@@ -60,9 +59,11 @@ export default function SearchPage() {
     <div>
       <h1>Resultado da Pesquisa</h1>
       <p>{params.query}</p>
+
       <SpinnerLoad>
         {loading && <CircleLoader color="rgba(212, 208, 212, 1)" loading />}
       </SpinnerLoad>
+
       <ContainerGeral>
         {searchResults?.map((movie, index) => (
           <CardContainer key={index}>
@@ -75,6 +76,7 @@ export default function SearchPage() {
             </button>
           </CardContainer>
         ))}
+
         <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
           {selectedMovie && (
             <ModalComponent
