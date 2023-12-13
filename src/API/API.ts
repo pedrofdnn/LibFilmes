@@ -1,5 +1,4 @@
 import axios, { AxiosResponse } from "axios";
-import { json } from "react-router-dom";
 
 export interface Movie {
   movie: Movie | null;
@@ -25,7 +24,6 @@ export const getAllMovies = async (page: number): Promise<Movie[]> => {
         },
       }
     );
-
     return response.data.results;
   } catch (error) {
     console.error("Erro com a API dos filmes favoritos.", error);
@@ -35,32 +33,22 @@ export const getAllMovies = async (page: number): Promise<Movie[]> => {
 
 // função que realizar a pesquisa dos filmes no banco de dados
 export const getAllMoviesBySearchTerm = async (
-  searchTerm: string
+  searchTerm: string,
+  page: number
 ): Promise<Movie[]> => {
-  const allResults: Movie[] = [];
-  const maxPages = 40; // Defina o número máximo de páginas a serem buscadas
-  let currentPage = 1;
-
   try {
-    for (currentPage = 1; currentPage <= maxPages; currentPage++) {
-      const response = await axios.get(`${BASE_URL}/search/movie${LANGUAGE}`, {
+    const response: AxiosResponse = await axios.get(
+      `${BASE_URL}/search/movie${LANGUAGE}`,
+      {
         params: {
           api_key: API_KEY,
           query: searchTerm,
-          page: currentPage,
+          page: page,
         },
-      });
-
-      const { results, total_pages } = response.data;
-      allResults.push(...results);
-
-      // Se não houver mais resultados ou atingiu o limite de páginas, saia do loop
-      if (currentPage >= total_pages || currentPage >= maxPages) {
-        break;
       }
-    }
-
-    return allResults;
+    );
+    console.log(response.data);
+    return response.data.results;
   } catch (error) {
     console.error("Erro de Busca na API", error);
     throw error;

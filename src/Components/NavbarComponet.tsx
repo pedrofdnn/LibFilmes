@@ -7,28 +7,33 @@ import { NavContainer, Searchbar } from "../Styles/StyleNav";
 export default function NavbarComponent() {
   const history = useNavigate();
   const [changeClick, setChangeClick] = useState("");
+  const [currentPage] = useState(1);
 
+  // captura o enter e muda o estado.
   async function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       e.preventDefault();
-      const results = await getAllMoviesBySearchTerm(changeClick);
+      const results = await getAllMoviesBySearchTerm(changeClick, currentPage);
       history(`/search/${changeClick}`, { state: { searchResults: results } });
       setChangeClick("");
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
 
+  // captura o click do botão.
   async function handleClick() {
-    const results = await getAllMoviesBySearchTerm(changeClick);
+    const results = await getAllMoviesBySearchTerm(changeClick, currentPage);
     history(`/search/${changeClick}`, { state: { searchResults: results } });
     setChangeClick("");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
+  // realiza a mudança de estado do input.
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setChangeClick(e.target.value);
   }
 
+  // atualiza a pagina quando aperta home
   function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
     window.location.href = "/";
@@ -38,7 +43,9 @@ export default function NavbarComponent() {
   return (
     <NavContainer>
       <nav>
-        <Link to="/" onClick={handleHomeClick}>Home</Link>
+        <Link to="/" onClick={handleHomeClick}>
+          Home
+        </Link>
         <Searchbar>
           <input
             type="text"
