@@ -15,59 +15,33 @@ export default function HomePage() {
   const [topMovies, setTopMovies] = useState<Movie[]>([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
-  const [page, setPage] = useState(1); // Página atual
-  const [loading, setLoading] = useState(false); // Estado para indicar carregamento
-
-  useEffect(() => {
-    const loadMoreMovies = async () => {
-      setLoading(true);
-      try {
-        const newMovies = await getAllMovies(page);
-        setTopMovies((prevMovies) => [...prevMovies, ...newMovies]);
-        setPage((prevPage) => prevPage + 1);
-      } catch (error) {
-        console.error("Erro ao buscar filmes.", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    const handleScroll = () => {
-      const distanceToBottom =
-        document.documentElement.offsetHeight -
-        (window.innerHeight + document.documentElement.scrollTop);
-
-      if (distanceToBottom < 100 && distanceToBottom > 0 && !loading) {
-        loadMoreMovies();
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [loading, page]);
 
   useEffect(() => {
     const fetchInitialMovies = async () => {
       try {
-        const results = await getAllMovies(page);
+        const results = await getAllMovies(2); // Carrega os filmes da página 1
         setTopMovies(results);
       } catch (error) {
         console.error("Erro ao buscar filmes.", error);
       }
     };
-    fetchInitialMovies();
+
+    fetchInitialMovies(); // Busca filmes iniciais ao montar o componente
   }, []);
 
+
   const handleOpenModal = (movie: Movie) => {
-    setSelectedMovie(movie);
-    setModalIsOpen(true);
+    if (!modalIsOpen) {
+      setSelectedMovie(movie);
+      setModalIsOpen(true);
+    }
   };
 
   const handleCloseModal = () => {
-    setSelectedMovie(null);
-    setModalIsOpen(false);
+    if (modalIsOpen) {
+      setSelectedMovie(null);
+      setModalIsOpen(false);
+    }
   };
 
   return (
@@ -90,7 +64,7 @@ export default function HomePage() {
           </CardContainer>
         ))}
       </ContainerGeral>
-
+{/* 
       <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
         {selectedMovie && (
           <ModalComponent
@@ -99,7 +73,7 @@ export default function HomePage() {
             onRequestClose={handleCloseModal}
           />
         )}
-      </ReactModal>
+      </ReactModal> */}
     </div>
   );
 }

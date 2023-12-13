@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { json } from "react-router-dom";
 
 export interface Movie {
   release_date?: string;
@@ -11,28 +12,39 @@ export interface Movie {
 const API_KEY = "9b6485a98f1d2b58864153d53d56cd51";
 const BASE_URL = "https://api.themoviedb.org/3/";
 const LANGUAGE = "?language=pt-BR";
+const PAGE = "&page=";
 
 // função que pega os dados dos melhores filmes
-export const getAllMovies = async (page: number): Promise<Movie[]> => {
-  try {
-    const response: AxiosResponse = await axios.get(
-      `${BASE_URL}/movie/top_rated${LANGUAGE}`,
-      {
-        params: {
-          api_key: API_KEY,
-          page: page,
-        },
+export const getAllMovies = (() => {
+  const requestedPages: { [key: number]: boolean } = {}; // Objeto para controlar páginas já requisitadas
+
+  return async (page: number): Promise<Movie[]> => {
+    try {
+      if (!requestedPages[page]) {
+        const response: AxiosResponse = await axios.get(
+          `${BASE_URL}movie/top_rated${LANGUAGE}&page=${page}`, // Adicionando a página à URL
+          {
+            params: {
+              api_key: API_KEY,
+            },
+          }
+        );
+
+        console.log(response.data); // Adicionando um console.log para visualizar a resposta
+
+        requestedPages[page] = true; // Marca a página como requisitada
+        return response.data.results;
+      } else {
+        // Se a página já foi requisitada, retorna vazio ou trata de outra forma
+        return [];
       }
-    );
-
-    const moviesInPage: Movie[] = response.data.results;
-    return moviesInPage;
-  } catch (error) {
-    console.error("Erro com a API dos filmes favoritos.", error);
-    throw error;
-  }
-};
-
+    } catch (error) {
+      console.error("Erro com a API dos filmes favoritos.", error);
+      throw error;
+    }
+  };
+})();
+  
 // função que realizar a pesquisa dos filmes no banco de dados
 export const getAllMoviesBySearchTerm = async (
   searchTerm: string
