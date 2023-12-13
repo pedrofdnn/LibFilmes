@@ -1,30 +1,105 @@
-searchTerm: string
-): Promise<Movie[]> => {
-  const allResults: Movie[] = [];
-  const maxPages = 40; // Defina o número máximo de páginas a serem buscadas
-  let currentPage = 1;
+import { useParams } from "react-router-dom";
+import {
+  CardContainer,
+  ContainerGeral,
+  SpinnerLoad,
+} from "../Styles/StyleCards";
+import ReactModal from "react-modal";
+import { useEffect, useState } from "react";
+import ModalComponent from "../Components/ModalComponent";
+import { getAllMoviesBySearchTerm } from "../API/API";
+import { CircleLoader } from "react-spinners";
 
-  try {
-    for (currentPage = 1; currentPage <= maxPages; currentPage++) {
-      const response = await axios.get(`${BASE_URL}/search/movie${LANGUAGE}`, {
-        params: {
-          api_key: API_KEY,
-          query: searchTerm,
-          page: currentPage,
-        },
-      });
+interface Movie {
+  title: string;
+  overview: string;
+  poster_path: string;
+}
 
-      const { results, total_pages } = response.data;
-      allResults.push(...results);
+export default function SearchPage() {
+  const [searchResults, setSearchResults] = useState<Movie[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+  const [loading, setLoading] = useState(false);
 
-      // Se não houver mais resultados ou atingiu o limite de páginas, saia do loop
-      if (currentPage >= total_pages || currentPage >= maxPages) {
-        break;
+  const params = useParams<{ query: string }>();
+  const searchTerm = params.query ? params.query : "";
+
+  useEffect(() => {
+    const fetchData = async (page: number) => {
+      try {
+        const results = await getAllMoviesBySearchTerm(searchTerm, page);
+        setSearchResults(results);
+
+        setTimeout(() => {
+          setSearchResults(results);
+          setLoading(false); // Marcar como carregado após o atraso
+        }, 150);
+      } catch (error) {
+        console.error("Erro ao buscar filmes.", error);
       }
-    }
+    };
 
-    return allResults;
-  } catch (error) {
-    console.error("Erro de Busca na API", error);
-    throw error;
-  }
+    fetchData(currentPage);
+  }, [currentPage, searchTerm]);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight
+    ) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleOpenModal = (movie: Movie) => {
+    setSelectedMovie(movie);
+    setModalIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedMovie(null);
+    setModalIsOpen(false);
+  };
+
+  return (
+    <div>
+      <h1>Resultado da Pesquisa</h1>
+      <p>{params.query}</p>
+
+      <SpinnerLoad>
+        {loading && <CircleLoader color="rgba(212, 208, 212, 1)" loading />}
+      </SpinnerLoad>
+
+      <ContainerGeral>
+        {searchResults?.map((movie, index) => (
+          <CardContainer key={index}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <button onClick={() => handleOpenModal(movie)}>
+              Mais Detalhes
+            </button>
+          </CardContainer>
+        ))}
+
+        <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
+          {selectedMovie && (
+            <ModalComponent
+              movie={selectedMovie}
+              isOpen={modalIsOpen}
+              onRequestClose={handleCloseModal}
+            />
+          )}
+        </ReactModal>
+      </ContainerGeral>
+    </div>
+  );
+}

@@ -19,31 +19,42 @@ interface Movie {
 export default function SearchPage() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
-  const [searchResults, setSearchResults] = useState<Movie[] | undefined>();
+  const [searchResults, setSearchResults] = useState<Movie[]>();
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
   const params = useParams<{ query: string }>();
+  const searchTerm = params.query ? params.query : "";
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true); // Ativar o spinner quando iniciar o carregamento
-
+    const fetchData = async (page: number) => {
       try {
-        const searchTerm = params.query; // Definir o termo de pesquisa a partir dos parâmetros
-        const results = await getAllMoviesBySearchTerm(searchTerm);
-
-        setTimeout(() => {
-          setSearchResults(results);
-          setLoading(false); // Marcar como carregado após o atraso
-        }, 150);
+        const results = await getAllMoviesBySearchTerm(searchTerm, page);
+        setSearchResults((prevResults) =>
+          prevResults ? [...prevResults, ...results] : results
+        );
+        setLoading(false); // Marcar como carregado
       } catch (error) {
         console.error("Erro ao buscar filmes.", error);
-        setLoading(false); // Marcar como carregado em caso de erro
       }
     };
 
-    fetchData();
-  }, [params.query]);
+    fetchData(currentPage);
+  }, [currentPage, searchTerm, setCurrentPage]);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight
+    ) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleOpenModal = (movie: Movie) => {
     setSelectedMovie(movie);
