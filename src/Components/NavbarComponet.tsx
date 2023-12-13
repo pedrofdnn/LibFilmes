@@ -8,37 +8,37 @@ export default function NavbarComponent() {
   const history = useNavigate();
   const [changeClick, setChangeClick] = useState("");
 
-  // evento de checagem do enter e click
   async function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       e.preventDefault();
       const results = await getAllMoviesBySearchTerm(changeClick);
-      // função que muda direciona a pagina quando clica
       history(`/search/${changeClick}`, { state: { searchResults: results } });
-
-      // reset o input
       setChangeClick("");
-
-      // Rolar a página para o topo
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
+
   async function handleClick() {
     const results = await getAllMoviesBySearchTerm(changeClick);
-    // função que muda direciona a pagina quando clica
     history(`/search/${changeClick}`, { state: { searchResults: results } });
-    // reset o input
     setChangeClick("");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setChangeClick(e.target.value);
+  }
+
+  function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault();
+    window.location.href = "/";
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (
     <NavContainer>
       <nav>
-        <Link to="/" onClick={() => window.location.reload()}>Home</Link>
+        <Link to="/" onClick={handleHomeClick}>Home</Link>
         <Searchbar>
           <input
             type="text"

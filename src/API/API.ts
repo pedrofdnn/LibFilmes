@@ -26,15 +26,13 @@ export const getAllMovies = async (page: number): Promise<Movie[]> => {
       }
     );
 
-    console.log(response.data); // Adicionando um console.log para visualizar a resposta
-
     return response.data.results;
   } catch (error) {
     console.error("Erro com a API dos filmes favoritos.", error);
     throw error;
   }
 };
-  
+
 // função que realizar a pesquisa dos filmes no banco de dados
 export const getAllMoviesBySearchTerm = async (
   searchTerm: string
