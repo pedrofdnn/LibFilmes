@@ -13,35 +13,49 @@ interface Movie {
 
 export default function HomePage() {
   const [topMovies, setTopMovies] = useState<Movie[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
+  // carrega as paginas que vem da APi
   useEffect(() => {
-    const fetchInitialMovies = async () => {
+    const fetchMovies = async (page: number) => {
       try {
-        const results = await getAllMovies(2); // Carrega os filmes da página 1
-        setTopMovies(results);
+        const results = await getAllMovies(page);
+        setTopMovies((prevMovies) => [...prevMovies, ...results]);
       } catch (error) {
         console.error("Erro ao buscar filmes.", error);
       }
     };
 
-    fetchInitialMovies(); // Busca filmes iniciais ao montar o componente
-  }, []);
+    fetchMovies(currentPage);
+  }, [currentPage]);
 
-
-  const handleOpenModal = (movie: Movie) => {
-    if (!modalIsOpen) {
-      setSelectedMovie(movie);
-      setModalIsOpen(true);
+  // captura o evento do final de pagina
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight
+    ) {
+      setCurrentPage((prevPage) => prevPage + 1);
     }
   };
 
+  // controle de captura do scroll
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // controla o modal
+  const handleOpenModal = (movie: Movie) => {
+    setSelectedMovie(movie);
+    setModalIsOpen(true);
+  };
+
   const handleCloseModal = () => {
-    if (modalIsOpen) {
-      setSelectedMovie(null);
-      setModalIsOpen(false);
-    }
+    setSelectedMovie(null);
+    setModalIsOpen(false);
   };
 
   return (
@@ -64,7 +78,7 @@ export default function HomePage() {
           </CardContainer>
         ))}
       </ContainerGeral>
-{/* 
+
       <ReactModal isOpen={modalIsOpen} onRequestClose={handleCloseModal}>
         {selectedMovie && (
           <ModalComponent
@@ -73,7 +87,7 @@ export default function HomePage() {
             onRequestClose={handleCloseModal}
           />
         )}
-      </ReactModal> */}
+      </ReactModal>
     </div>
   );
 }

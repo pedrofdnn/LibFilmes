@@ -38,7 +38,7 @@ export default function NavbarComponent() {
   return (
     <NavContainer>
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/" onClick={() => window.location.reload()}>Home</Link>
         <Searchbar>
           <input
             type="text"
