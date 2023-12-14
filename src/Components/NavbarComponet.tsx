@@ -15,8 +15,9 @@ export default function NavbarComponent() {
       e.preventDefault();
       const results = await getAllMoviesBySearchTerm(changeClick, currentPage);
       history(`/search/${changeClick}`, { state: { searchResults: results } });
+      window.location.reload();
       setChangeClick("");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "instant" });
     }
   }
 
@@ -24,8 +25,9 @@ export default function NavbarComponent() {
   async function handleClick() {
     const results = await getAllMoviesBySearchTerm(changeClick, currentPage);
     history(`/search/${changeClick}`, { state: { searchResults: results } });
+    window.location.reload();
     setChangeClick("");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "instant" });
   }
 
   // realiza a mudança de estado do input.
@@ -37,7 +39,7 @@ export default function NavbarComponent() {
   function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
     window.location.href = "/";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "instant" });
   }
 
   return (

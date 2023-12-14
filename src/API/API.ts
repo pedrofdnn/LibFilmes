@@ -38,7 +38,7 @@ export const getAllMoviesBySearchTerm = async (
 ): Promise<Movie[]> => {
   try {
     const response: AxiosResponse = await axios.get(
-      `${BASE_URL}/search/movie${LANGUAGE}`,
+      `${BASE_URL}/search/movie${LANGUAGE}&page=${page}`,
       {
         params: {
           api_key: API_KEY,

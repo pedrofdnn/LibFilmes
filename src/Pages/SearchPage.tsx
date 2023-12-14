@@ -26,21 +26,48 @@ export default function SearchPage() {
   const params = useParams<{ query: string }>();
   const searchTerm = params.query ? params.query : "";
 
+  const fetchSearchResults = async (searchTerm: string, page: number) => {
+    try {
+      const results = await getAllMoviesBySearchTerm(searchTerm, page);
+      return results;
+    } catch (error) {
+      console.error("Erro ao buscar filmes.", error);
+      return [];
+    }
+  };
+
+
   useEffect(() => {
-    const fetchData = async (page: number) => {
-      try {
-        const results = await getAllMoviesBySearchTerm(searchTerm, page);
-        setSearchResults((prevResults) =>
-          prevResults ? [...prevResults, ...results] : results
-        );
-        setLoading(false); // Marcar como carregado
-      } catch (error) {
-        console.error("Erro ao buscar filmes.", error);
+    const fetchData = async () => {
+      if (searchTerm) {
+        setLoading(true);
+        const results = await fetchSearchResults(searchTerm, currentPage);
+        if (currentPage === 1) {
+          setSearchResults(results);
+        } else {
+          setSearchResults((prevResults) => {
+            if (prevResults && results) {
+              return [...prevResults, ...results];
+            } else if (results) {
+              return results;
+            } else {
+              return prevResults; // Caso não haja novos resultados
+            }
+          });
+        }
+        setLoading(false);
       }
     };
+  
+    fetchData();
+  }, [searchTerm, currentPage]);
 
-    fetchData(currentPage);
-  }, [currentPage, searchTerm, setCurrentPage]);
+  
+
+  
+  
+  
+  
 
   const handleScroll = () => {
     if (
