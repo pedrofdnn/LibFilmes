@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   CardContainer,
   ContainerGeral,
@@ -23,9 +23,11 @@ export default function SearchPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
+  // Recebe a informação da URL e o numero de paginas se não ele retorna vazio
   const params = useParams<{ query: string }>();
   const searchTerm = params.query ? params.query : "";
 
+  // recebe os dados da api ea quantidade de paginas.
   const fetchSearchResults = async (searchTerm: string, page: number) => {
     try {
       const results = await getAllMoviesBySearchTerm(searchTerm, page);
@@ -36,7 +38,7 @@ export default function SearchPage() {
     }
   };
 
-
+  // realiza o checagem de mudanças das pesquisas.
   useEffect(() => {
     const fetchData = async () => {
       if (searchTerm) {
@@ -58,17 +60,11 @@ export default function SearchPage() {
         setLoading(false);
       }
     };
-  
+
     fetchData();
   }, [searchTerm, currentPage]);
 
-  
-
-  
-  
-  
-  
-
+  // captura o scroll e acrescenta mais uma pagina quando
   const handleScroll = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop >=
@@ -78,11 +74,13 @@ export default function SearchPage() {
     }
   };
 
+  // executa a função do scroll ativando e desativado o handlerScroll
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // funções do modal
   const handleOpenModal = (movie: Movie) => {
     setSelectedMovie(movie);
     setModalIsOpen(true);

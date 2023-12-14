@@ -41,6 +41,11 @@ const ContainerGeral = styled.div`
     border-radius: 8px;
     box-shadow: 5px 3px;
   }
+
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const SpinnerLoad = styled.div`

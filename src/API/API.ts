@@ -47,7 +47,6 @@ export const getAllMoviesBySearchTerm = async (
         },
       }
     );
-    console.log(response.data);
     return response.data.results;
   } catch (error) {
     console.error("Erro de Busca na API", error);
