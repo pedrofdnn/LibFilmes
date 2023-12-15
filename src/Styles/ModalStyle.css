@@ -85,3 +85,38 @@
     padding: 5px;
   }
 }
+
+@media (max-width: 425px) {
+  .poster {
+    width: 100%;
+  }
+  .container-resume {
+    padding: 0;
+    margin: 5px;
+    font-size: 18px;
+  }
+  .titleMovie {
+    font-size: 16px;
+  }
+  .date {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .poster {
+    width: 70%;
+  }
+  .container-resume {
+    padding: 0;
+    margin: 5px;
+    font-size: 13.2px;
+  }
+  .titleMovie {
+    font-size: 16px;
+    margin: 0 0 5px;
+  }
+  .date {
+    font-size: 14px;
+  }
+}

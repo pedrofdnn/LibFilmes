@@ -30,7 +30,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
         {isOpen && (
           <div className="container-geral">
             <div className="container-title">
-              <h2>{movie.title}</h2>
+              <h2 className=" ">{movie.title}</h2>
               <img
                 className="poster"
                 src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
@@ -40,7 +40,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
 
             <div className="container-resume">
               <span className="detail">{movie.overview}</span>
-              <p> Lançamento: {formattedReleaseDate}</p>
+              <p className="date"> Lançamento: {formattedReleaseDate}</p>
             </div>
             <button className="closeButton" onClick={onRequestClose}>
               Fechar

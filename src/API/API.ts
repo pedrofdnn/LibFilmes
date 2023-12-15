@@ -23,7 +23,6 @@ export const getAllMovies = async (page: number): Promise<Movie[]> => {
         },
       }
     );
-    console.log(response.data);
     return response.data.results;
   } catch (error) {
     console.error("Erro com a API dos filmes favoritos.", error);

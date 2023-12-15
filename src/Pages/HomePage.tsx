@@ -19,23 +19,39 @@ export default function HomePage() {
 
   // carrega as paginas que vem da APi
   useEffect(() => {
-    const fetchMovies = async (page: number) => {
+    const fetchTopMovies = async () => {
       try {
-        const results = await getAllMovies(page);
-        setTopMovies((prevMovies) => [...prevMovies, ...results]);
+        const results = await getAllMovies(currentPage);
+        setTopMovies((prevMovies) => {
+          if (currentPage === 1) {
+            return results;
+          } else {
+            return [...prevMovies, ...results];
+          }
+        });
       } catch (error) {
         console.error("Erro ao buscar filmes.", error);
       }
     };
 
-    fetchMovies(currentPage);
+    fetchTopMovies();
   }, [currentPage]);
 
   // captura o evento do final de pagina
   const handleScroll = () => {
+    const isMobile = window.innerWidth <= 768; // Verifica se é um dispositivo móvel
+
     if (
-      window.innerHeight + document.documentElement.scrollTop >=
-      document.documentElement.offsetHeight
+      isMobile &&
+      document.documentElement.offsetHeight -
+        (window.innerHeight + document.documentElement.scrollTop) <=
+        320
+    ) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    } else if (
+      !isMobile &&
+      document.documentElement.offsetHeight ===
+        window.innerHeight + document.documentElement.scrollTop
     ) {
       setCurrentPage((prevPage) => prevPage + 1);
     }

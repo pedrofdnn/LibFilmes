@@ -66,9 +66,19 @@ export default function SearchPage() {
 
   // captura o scroll e acrescenta mais uma pagina quando
   const handleScroll = () => {
+    const isMobile = window.innerWidth <= 768; // Verifica se é um dispositivo móvel
+
     if (
-      window.innerHeight + document.documentElement.scrollTop >=
-      document.documentElement.offsetHeight
+      isMobile &&
+      document.documentElement.offsetHeight -
+        (window.innerHeight + document.documentElement.scrollTop) <=
+        320
+    ) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    } else if (
+      !isMobile &&
+      document.documentElement.offsetHeight ===
+        window.innerHeight + document.documentElement.scrollTop
     ) {
       setCurrentPage((prevPage) => prevPage + 1);
     }
