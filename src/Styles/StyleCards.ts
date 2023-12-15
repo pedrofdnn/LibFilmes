@@ -42,9 +42,14 @@ const ContainerGeral = styled.div`
     box-shadow: 5px 3px;
   }
 
-  
   @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 425px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 

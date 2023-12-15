@@ -37,6 +37,16 @@ p {
   font-weight: bold;
   text-transform: uppercase;
 }
+
+@media (max-width: 425px) {
+  
+  h1{
+    padding:100px 0 30px 0;
+    font-size:60px;
+  }
+
+
+  }
 `;
 
 export default GlobalStyle;

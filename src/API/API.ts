@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 
 export interface Movie {
-  movie: Movie | null;
   release_date?: string;
   title: string;
   overview: string;
@@ -24,6 +23,7 @@ export const getAllMovies = async (page: number): Promise<Movie[]> => {
         },
       }
     );
+    console.log(response.data);
     return response.data.results;
   } catch (error) {
     console.error("Erro com a API dos filmes favoritos.", error);

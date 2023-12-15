@@ -14,7 +14,6 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
   isOpen,
   onRequestClose,
 }) => {
-  
   //converte o formato da data
   const formattedReleaseDate = movie.release_date
     ? format(new Date(movie.release_date), "dd-MM-yyyy")
@@ -33,13 +32,14 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
             <div className="container-title">
               <h2>{movie.title}</h2>
               <img
+                className="poster"
                 src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                 alt={movie.title}
               />
             </div>
 
             <div className="container-resume">
-              <span>{movie.overview}</span>
+              <span className="detail">{movie.overview}</span>
               <p> Lançamento: {formattedReleaseDate}</p>
             </div>
             <button className="closeButton" onClick={onRequestClose}>

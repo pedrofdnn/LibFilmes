@@ -75,3 +75,13 @@
     top: 1px;
   }
 }
+
+@media (max-width: 768px) {
+  .poster {
+    width: 70%;
+  }
+  .container-title {
+    margin: 1px;
+    padding: 5px;
+  }
+}
