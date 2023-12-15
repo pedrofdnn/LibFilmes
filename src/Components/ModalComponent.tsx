@@ -30,7 +30,7 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
         {isOpen && (
           <div className="container-geral">
             <div className="container-title">
-              <h2 className=" ">{movie.title}</h2>
+              <h2 className="titleMovie">{movie.title}</h2>
               <img
                 className="poster"
                 src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}

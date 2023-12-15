@@ -44,12 +44,12 @@ p {
     padding:100px 0 30px 0;
     font-size:60px;
   }
+  
   }
 
   @media (max-width: 375px) {
     h1{
     padding:100px 0 30px 0;
-    font-size:50px;
   }
   }
 
