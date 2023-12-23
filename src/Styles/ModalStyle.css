@@ -77,12 +77,35 @@
   }
 }
 
-.poster {
-  width: 100%;
-}
+/* .poster {
+  width: 70%;
+} */
 .titleMovie {
   font-size: 60px;
   margin: 0 0 5px;
+}
+
+@media (max-width: 1440px) {
+  .container-title {
+    margin: 1px;
+    padding: 5px;
+  }
+  .titleMovie {
+    font-size: 50px;
+  }
+  .date {
+    font-size: 16px;
+  }
+  .container-resume {
+    padding: 0;
+    margin: 5px;
+    font-size: 14px;
+  }
+  .closeButton {
+    padding: 5px 15px;
+    font-size: 14px;
+    margin: 4px;
+  }
 }
 
 @media (max-width: 768px) {
