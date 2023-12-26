@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { LiaSearchSolid } from "react-icons/lia";
 import { getAllMoviesBySearchTerm } from "../API/API";
 import { NavContainer, Searchbar } from "../Styles/StyleNav";
+import MenuComponent from "./MenuComponent";
+import BugerComponent from "./BugerComponent";
 
 export default function NavbarComponent() {
   const history = useNavigate();
@@ -35,19 +37,9 @@ export default function NavbarComponent() {
     setChangeClick(e.target.value);
   }
 
-  // atualiza a pagina quando aperta home
-  function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    e.preventDefault();
-    window.location.href = "/";
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }
-
   return (
     <NavContainer>
       <nav>
-        <Link to="/" onClick={handleHomeClick}>
-          Home
-        </Link>
         <Searchbar>
           <input
             type="text"
@@ -61,7 +53,9 @@ export default function NavbarComponent() {
             <LiaSearchSolid />
           </button>
         </Searchbar>
-        <Link to="/contact">Contato</Link>
+
+        <BugerComponent />
+        <MenuComponent />
       </nav>
     </NavContainer>
   );
