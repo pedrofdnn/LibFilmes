@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { UL } from "../Styles/StyleNav";
 
+
+
 export default function MenuComponent() {
   function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();

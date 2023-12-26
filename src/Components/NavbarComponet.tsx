@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LiaSearchSolid } from "react-icons/lia";
 import { getAllMoviesBySearchTerm } from "../API/API";
 import { NavContainer, Searchbar } from "../Styles/StyleNav";
-import MenuComponent from "./MenuComponent";
 import BugerComponent from "./BugerComponent";
 
 export default function NavbarComponent() {
@@ -54,8 +53,7 @@ export default function NavbarComponent() {
           </button>
         </Searchbar>
 
-        <BugerComponent />
-        <MenuComponent />
+        <BugerComponent open={false} />
       </nav>
     </NavContainer>
   );
