@@ -97,9 +97,8 @@ const StyledBurger = styled.div<StyledBurgerProps>`
   position: fixed;
   top: 25px;
   right: 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-flow: column nowrap;
+  display: none;
+  z-index: 20;
 
   div {
     width: 2rem;
@@ -124,7 +123,11 @@ const StyledBurger = styled.div<StyledBurgerProps>`
     }
   }
 
-  
+  @media (max-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column nowrap;
+  }
 `;
 
 export { NavContainer, Searchbar, UL, StyledBurger };

@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 import { UL } from "../Styles/StyleNav";
 
-
-
-export default function MenuComponent() {
+export default function MenuComponent({ open }) {
   function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
     window.location.href = "/";
@@ -11,7 +9,7 @@ export default function MenuComponent() {
   }
 
   return (
-    <UL>
+    <UL open={open}>
       <li>
         <Link to="/" onClick={handleHomeClick}>
           Home
