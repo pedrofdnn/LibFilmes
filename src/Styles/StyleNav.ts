@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-const NavContainer = styled.nav`
+interface NavContainerProps {
+  open?: boolean; // Defina como opcional, se não for sempre necessária
+}
+const NavContainer = styled.nav<NavContainerProps>`
   nav {
     margin-bottom: 5px;
     background-color: #0a0908;
@@ -25,10 +28,16 @@ const NavContainer = styled.nav`
       color: #2980b9;
     }
   }
+
+  @media (max-width: 425px) {
+    a {
+      font-size: 25px;
+    }
+  }
 `;
 
 interface ULProps {
-  open: boolean;
+  open?: boolean;
 }
 const UL = styled.ul<ULProps>`
   display: flex;
@@ -48,9 +57,25 @@ const UL = styled.ul<ULProps>`
     position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
-    width: 300px;
+    height: 26vh;
+    width: 180px;
+    border-bottom-left-radius: 55px;
     transition: transform 0.3s ease-in-out;
+  }
+
+  @media (max-width: 425px) {
+    eight: 20vh;
+    width: 128px;
+    padding-top: 3.5rem;
+    li {
+      padding: 18px 0;
+    }
+  }
+
+  @media (max-width: 320px) {
+    width: 120px;
+    padding-top: 2.5rem;
+    height: 37vh;
   }
 `;
 
@@ -59,6 +84,7 @@ const Searchbar = styled.div`
   justify-content: space-between;
   margin-left: auto;
   margin-right: 23.5%;
+
   input {
     border-radius: 9px 0 0 9px;
     padding: 7px 60px;
@@ -85,6 +111,26 @@ const Searchbar = styled.div`
   }
   @media (max-width: 1024px) {
     margin-right: 32.5%;
+  }
+  @media (max-width: 768px) {
+    margin-right: 27.5%;
+  }
+  @media (max-width: 425px) {
+    margin-right: 17.5%;
+    input {
+      padding: 7px 25px;
+    }
+  }
+  @media (max-width: 375px) {
+    input {
+      padding: 7px 15px;
+    }
+  }
+  @media (max-width: 320px) {
+    margin-right: 20.5%;
+    input {
+      padding: 7px 5px;
+    }
   }
 `;
 
