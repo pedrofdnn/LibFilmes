@@ -105,7 +105,9 @@ const Searchbar = styled.div`
       background-color: #2980b9;
     }
   }
-
+  @media (max-width: 2560px) {
+    margin-right: 30.5%;
+  }
   @media (max-width: 1440px) {
     margin-right: 15%;
   }
