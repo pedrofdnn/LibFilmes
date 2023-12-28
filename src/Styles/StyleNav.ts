@@ -3,7 +3,7 @@ import styled from "styled-components";
 interface NavContainerProps {
   open?: boolean; // Defina como opcional, se não for sempre necessária
 }
-const NavContainer = styled.nav<NavContainerProps>`
+const NavContainer = styled.div<NavContainerProps>`
   nav {
     margin-bottom: 5px;
     background-color: #0a0908;
@@ -105,7 +105,7 @@ const Searchbar = styled.div`
       background-color: #2980b9;
     }
   }
-  @media (max-width: 2560px) {
+  @media (min-width: 2560px) {
     margin-right: 30.5%;
   }
   @media (max-width: 1440px) {
