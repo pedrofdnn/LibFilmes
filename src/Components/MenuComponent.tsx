@@ -15,7 +15,7 @@ export default function MenuComponent({ open }: MenuComponentProps) {
   return (
     <UL open={open}>
       <li>
-        <Link to="/" onClick={handleHomeClick}>
+        <Link to="/LibFilmes" onClick={handleHomeClick}>
           Home
         </Link>
       </li>
