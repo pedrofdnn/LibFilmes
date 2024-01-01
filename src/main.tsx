@@ -15,13 +15,13 @@ import HomePage from "./Pages/HomePage";
 const router = createBrowserRouter([
   {
     // pagina padrão como home page
-    path: "/LibFilmes",
+    path: "/",
     element: <App />,
     errorElement: <ErroPage />,
     // componente base para páginas
     children: [
       {
-        path: "/",
+        path: "/LibFilmes",
         element: <HomePage />,
       },
       {
