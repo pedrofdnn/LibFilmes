@@ -53,7 +53,7 @@ export default function NavbarComponent() {
           </button>
         </Searchbar>
 
-        <BugerComponent open={false} />
+        <BugerComponent initialOpen={false} />
       </nav>
     </NavContainer>
   );
