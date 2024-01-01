@@ -233,7 +233,7 @@ Error generating stack: `+i.message+`
     justify-content: space-between;
     flex-flow: column nowrap;
   }
-`;function iE({open:e}){function t(n){n.preventDefault(),window.location.href="/",window.scrollTo({top:0,behavior:"instant"})}return L.jsxs(nE,{open:e,children:[L.jsx("li",{children:L.jsx(zd,{to:"/",onClick:t,children:"Home"})}),L.jsx("li",{children:L.jsx(zd,{to:"/contact",children:"Contato"})})]})}function aE({initialOpen:e}){const[t,n]=R.useState(e),r=()=>{n(!t)};return L.jsxs("div",{children:[L.jsxs(oE,{open:t,onClick:r,children:[L.jsx("div",{}),L.jsx("div",{}),L.jsx("div",{})]}),L.jsx(iE,{open:t})]})}function Jv(){const e=Zm(),[t,n]=R.useState(""),[r]=R.useState(1);async function o(l){if(l.key==="Enter"){l.preventDefault();const s=await Nu(t,r);e(`/search/${t}`,{state:{searchResults:s}}),window.location.reload(),n(""),window.scrollTo({top:0,behavior:"instant"})}}async function i(){const l=await Nu(t,r);e(`/search/${t}`,{state:{searchResults:l}}),window.location.reload(),n(""),window.scrollTo({top:0,behavior:"instant"})}function a(l){n(l.target.value)}return L.jsx(tE,{children:L.jsxs("nav",{children:[L.jsxs(rE,{children:[L.jsx("input",{type:"text",placeholder:"Pesquise o Filme",value:t,onChange:a,onKeyDown:o}),L.jsx("button",{onClick:i,children:L.jsx(Lw,{})})]}),L.jsx(aE,{initialOpen:!1})]})})}function lE(){return L.jsxs("div",{children:[L.jsx(Jv,{}),L.jsx(fw,{})]})}const sE="/assets/BackGround-2d7745f1.jpg",uE=eE`
+`;function iE({open:e}){function t(n){n.preventDefault(),window.location.href="/",window.scrollTo({top:0,behavior:"instant"})}return L.jsxs(nE,{open:e,children:[L.jsx("li",{children:L.jsx(zd,{to:"/",onClick:t,children:"Home"})}),L.jsx("li",{children:L.jsx(zd,{to:"/contact",children:"Contato"})})]})}function aE({initialOpen:e}){const[t,n]=R.useState(e),r=()=>{n(!t)};return L.jsxs("div",{children:[L.jsxs(oE,{open:t,onClick:r,children:[L.jsx("div",{}),L.jsx("div",{}),L.jsx("div",{})]}),L.jsx(iE,{open:t})]})}function Jv(){const e=Zm(),[t,n]=R.useState(""),[r]=R.useState(1);async function o(l){if(l.key==="Enter"){l.preventDefault();const s=await Nu(t,r);e(`/search/${t}`,{state:{searchResults:s}}),window.location.reload(),n(""),window.scrollTo({top:0,behavior:"instant"})}}async function i(){const l=await Nu(t,r);e(`/search/${t}`,{state:{searchResults:l}}),window.location.reload(),n(""),window.scrollTo({top:0,behavior:"instant"})}function a(l){n(l.target.value)}return L.jsx(tE,{children:L.jsxs("nav",{children:[L.jsxs(rE,{children:[L.jsx("input",{type:"text",placeholder:"Pesquise o Filme",value:t,onChange:a,onKeyDown:o}),L.jsx("button",{onClick:i,children:L.jsx(Lw,{})})]}),L.jsx(aE,{initialOpen:!1})]})})}function lE(){return L.jsxs("div",{children:[L.jsx(Jv,{}),L.jsx(fw,{})]})}const sE="/LibFilmes/assets/BackGround-2d7745f1.jpg",uE=eE`
   body {
     font-family: 'Roboto Condensed', sans-serif;
     background: url( ${sE});
@@ -281,7 +281,7 @@ Error generating stack: `+i.message+`
   }
 }
 
-`,cE="/assets/erroPage-450f9384.gif";function fE(){return L.jsxs("div",{children:[L.jsx(Jv,{}),L.jsx("h1",{children:"Pagina não encontrada"}),L.jsx("p",{children:L.jsx("img",{src:cE,alt:""})})]})}const Zv=mn.div`
+`,cE="/LibFilmes/assets/erroPage-450f9384.gif";function fE(){return L.jsxs("div",{children:[L.jsx(Jv,{}),L.jsx("h1",{children:"Pagina não encontrada"}),L.jsx("p",{children:L.jsx("img",{src:cE,alt:""})})]})}const Zv=mn.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
