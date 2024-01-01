@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/search/:query",
+        path: "/LibFilmes/search/:query",
         element: <SearchPage />,
       },
       {

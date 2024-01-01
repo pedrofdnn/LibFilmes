@@ -15,7 +15,7 @@ export default function NavbarComponent() {
     if (e.key === "Enter") {
       e.preventDefault();
       const results = await getAllMoviesBySearchTerm(changeClick, currentPage);
-      history(`/search/${changeClick}`, { state: { searchResults: results } });
+      history(`/LibFilmes/search/${changeClick}`, { state: { searchResults: results } });
       window.location.reload();
       setChangeClick("");
       window.scrollTo({ top: 0, behavior: "instant" });
