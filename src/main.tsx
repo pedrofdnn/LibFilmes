@@ -15,7 +15,7 @@ import HomePage from "./Pages/HomePage";
 const router = createBrowserRouter([
   {
     // pagina padrão como home page
-    path: "/",
+    path: "/LibFilmes",
     element: <App />,
     errorElement: <ErroPage />,
     // componente base para páginas
