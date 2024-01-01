@@ -5,9 +5,13 @@ import MenuComponent from "./MenuComponent";
 export default function BurgerComponent() {
   const [open, setOpen] = useState<boolean>(false);
 
+  const handleBurgerClick = () => {
+    setOpen(!open);
+  };
+
   return (
     <div>
-      <StyledBurger open={open} onClick={() => setOpen(!open)}>
+      <StyledBurger open={open} onClick={handleBurgerClick}>
         <div />
         <div />
         <div />
