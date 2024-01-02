@@ -20,7 +20,7 @@ export default function MenuComponent({ open }: MenuComponentProps) {
         </Link>
       </li>
       <li>
-        <Link to="/contact">Contato</Link>
+        <Link to="/LibFilmes/contact">Contato</Link>
       </li>
     </UL>
   );
