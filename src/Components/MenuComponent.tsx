@@ -8,7 +8,7 @@ interface MenuComponentProps {
 export default function MenuComponent({ open }: MenuComponentProps) {
   function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
-    window.location.href = "/";
+    window.location.href = "/LibFilmes";
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 

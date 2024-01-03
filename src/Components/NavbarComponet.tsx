@@ -25,7 +25,7 @@ export default function NavbarComponent() {
   // captura o click do botão.
   async function handleClick() {
     const results = await getAllMoviesBySearchTerm(changeClick, currentPage);
-    history(`/search/${changeClick}`, { state: { searchResults: results } });
+    history(`/LibFilmes/search/${changeClick}`, { state: { searchResults: results } });
     window.location.reload();
     setChangeClick("");
     window.scrollTo({ top: 0, behavior: "instant" });
