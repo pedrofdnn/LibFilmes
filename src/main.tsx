@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import App from "./App";
 import GlobalStyle from "./Styles/StyleGlobal";
 
@@ -12,7 +12,7 @@ import ReactModal from "react-modal";
 import HomePage from "./Pages/HomePage";
 
 // componente de paginação
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     // pagina padrão como home page
     path: "/",
