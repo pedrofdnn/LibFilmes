@@ -15,21 +15,21 @@ import HomePage from "./Pages/HomePage";
 const router = createBrowserRouter([
   {
     // pagina padrão como home page
-    path: "/LibFilmes",
+    path: "/",
     element: <App />,
     errorElement: <ErroPage />,
     // componente base para páginas
     children: [
       {
-        path: "/LibFilmes",
+        path: "/",
         element: <HomePage />,
       },
       {
-        path: "/LibFilmes/search/:query",
+        path: "/search/:query",
         element: <SearchPage />,
       },
       {
-        path: "/LibFilmes/contact",
+        path: "/contact",
         element: <ContactPage />,
       },
     ],

@@ -8,19 +8,19 @@ interface MenuComponentProps {
 export default function MenuComponent({ open }: MenuComponentProps) {
   function handleHomeClick(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
-    window.location.href = "/LibFilmes";
+    window.location.href = "/";
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
   return (
     <UL open={open}>
       <li>
-        <Link to="/LibFilmes" onClick={handleHomeClick}>
+        <Link to="/" onClick={handleHomeClick}>
           Home
         </Link>
       </li>
       <li>
-        <Link to="/LibFilmes/contact">Contato</Link>
+        <Link to="/contact">Contato</Link>
       </li>
     </UL>
   );
