@@ -108,12 +108,18 @@ const Searchbar = styled.div`
     }
   }
 
-  @media (max-width: 425px) {
+  @media (min-width: 400px) and (max-width: 480px) {
+    h1 {
+      font-size: 15px;
+    }
     input {
       padding: 7px 25px;
     }
   }
-  @media (max-width: 375px) {
+  @media (min-width: 321px) and (max-width: 399px) {
+    h1 {
+      font-size: 10px;
+    }
     input {
       padding: 7px 10px;
     }
@@ -121,6 +127,7 @@ const Searchbar = styled.div`
   @media (max-width: 320px) {
     input {
       padding: 0;
+      font-size: 14px;
     }
   }
 `;
@@ -166,7 +173,7 @@ const StyledBurger = styled.div<StyledBurgerProps>`
     flex-flow: column nowrap;
   }
   @media (max-width: 320px) {
-    width: 19px;
+    width: 23px;
   }
 `;
 

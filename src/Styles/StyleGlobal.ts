@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
     text-transform: uppercase;
   }
 
-@media (max-width: 425px) {  
+@media (min-width: 400px) and (max-width: 430px) {  
   h1{
     padding:100px 0 30px 0;
     font-size:60px;
@@ -43,9 +43,10 @@ const GlobalStyle = createGlobalStyle`
   }
 }
 
-@media (max-width: 375px) {
+@media (min-width: 300px) and (max-width: 399px) {
     h1{
     padding:100px 0 30px 0;
+    font-size: 50px;
   }
 }
 

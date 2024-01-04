@@ -39,15 +39,19 @@
 
 .container-resume {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   margin: 0 60px 5px;
-  padding: 5px 10px 10px 10px;
-  text-align: justify;
   font-weight: bold;
   color: #ced4da;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  align-content: center;
+  text-align: justify;
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.date {
+  padding-top: 10px;
 }
 
 .closeButton {
@@ -81,7 +85,6 @@
   font-size: 60px;
   margin: 0 0 5px;
 }
-
 
 @media (max-width: 1440px) {
   .container-title {
@@ -118,8 +121,6 @@
     font-size: 16px;
   }
   .container-resume {
-    padding: 0;
-    margin: 5px;
     font-size: 14px;
   }
 
@@ -130,7 +131,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 425px), (max-width: 430px) {
   .titleMovie {
     font-size: 29px;
   }
@@ -141,12 +142,7 @@
     padding: 0;
     margin: 5px;
     font-size: 16px;
-  }
-  .detail {
-    height: 230px; /* Altura da área scrollable */
-    overflow-y: scroll; /* Adiciona a barra de rolagem vertical */
-    border: 1px solid #ccc; /* Apenas para visualização */
-    padding: 10px; /* Espaçamento interno */
+    height: 260px;
   }
   .date {
     font-size: 17px;
@@ -178,10 +174,9 @@
   }
   .container-resume {
     font-size: 10px;
+    height: 140px;
   }
-  .detail {
-    height: 160px; /* Altura da área scrollable */
-  }
+
   .date {
     font-size: 14px;
   }

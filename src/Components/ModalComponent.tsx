@@ -39,8 +39,8 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
             </div>
 
             <div className="container-resume">
-              <span className="detail">{movie.overview}</span>
               <p className="date"> Lançamento: {formattedReleaseDate}</p>
+              <span className="detail">{movie.overview}</span>
             </div>
             <button className="closeButton" onClick={onRequestClose}>
               Fechar
