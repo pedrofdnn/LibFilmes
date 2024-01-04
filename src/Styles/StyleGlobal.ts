@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Lobster', sans-serif;
     background: #9C1000;
     background: repeating-radial-gradient(ellipse farthest-corner at top left, #9C1000 0%, #249FAD 100%);
+    background-clip: text; 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 3px 5px;
