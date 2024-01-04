@@ -15,6 +15,7 @@ const NavContainer = styled.div<NavContainerProps>`
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
   }
 
@@ -81,9 +82,10 @@ const UL = styled.ul<ULProps>`
 
 const Searchbar = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: 23.5%;
+  position: fixed;
+  margin-top: 37px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   input {
     border-radius: 9px 0 0 9px;
@@ -105,33 +107,20 @@ const Searchbar = styled.div`
       background-color: #2980b9;
     }
   }
-  @media (min-width: 2560px) {
-    margin-right: 30.5%;
-  }
-  @media (max-width: 1440px) {
-    margin-right: 15%;
-  }
-  @media (max-width: 1024px) {
-    margin-right: 32.5%;
-  }
-  @media (max-width: 768px) {
-    margin-right: 27.5%;
-  }
+
   @media (max-width: 425px) {
-    margin-right: 17.5%;
     input {
       padding: 7px 25px;
     }
   }
   @media (max-width: 375px) {
     input {
-      padding: 7px 15px;
+      padding: 7px 10px;
     }
   }
   @media (max-width: 320px) {
-    margin-right: 20.5%;
     input {
-      padding: 7px 5px;
+      padding: 0;
     }
   }
 `;
@@ -175,6 +164,9 @@ const StyledBurger = styled.div<StyledBurgerProps>`
     display: flex;
     justify-content: space-between;
     flex-flow: column nowrap;
+  }
+  @media (max-width: 320px) {
+    width: 19px;
   }
 `;
 

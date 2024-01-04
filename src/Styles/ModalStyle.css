@@ -82,6 +82,7 @@
   margin: 0 0 5px;
 }
 
+
 @media (max-width: 1440px) {
   .container-title {
     margin: 1px;
@@ -105,7 +106,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .container-title {
     margin: 1px;
     padding: 5px;
@@ -121,6 +122,7 @@
     margin: 5px;
     font-size: 14px;
   }
+
   .closeButton {
     padding: 5px 15px;
     font-size: 14px;
@@ -139,6 +141,12 @@
     padding: 0;
     margin: 5px;
     font-size: 16px;
+  }
+  .detail {
+    height: 230px; /* Altura da área scrollable */
+    overflow-y: scroll; /* Adiciona a barra de rolagem vertical */
+    border: 1px solid #ccc; /* Apenas para visualização */
+    padding: 10px; /* Espaçamento interno */
   }
   .date {
     font-size: 17px;
@@ -170,6 +178,9 @@
   }
   .container-resume {
     font-size: 10px;
+  }
+  .detail {
+    height: 160px; /* Altura da área scrollable */
   }
   .date {
     font-size: 14px;
