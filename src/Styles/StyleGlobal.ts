@@ -47,7 +47,8 @@ const GlobalStyle = createGlobalStyle`
 @media (min-width: 300px) and (max-width: 399px) {
     h1{
     padding:100px 0 30px 0;
-    font-size: 32px;
+    font-size: 55px;
+    text-align: center;
   }
 }
 
