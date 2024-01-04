@@ -46,8 +46,7 @@
   flex-wrap: nowrap;
   align-items: center;
   text-align: justify;
-  height: 250px;
-  overflow-y: scroll;
+ 
 }
 
 .date {
@@ -95,12 +94,14 @@
     font-size: 50px;
   }
   .date {
-    font-size: 16px;
+    font-size: 20px;
   }
   .container-resume {
     padding: 0;
-    margin: 5px;
-    font-size: 14px;
+    margin: 0 120px 0;
+    font-size: 20px;
+    height: 250px;
+    overflow-y: scroll;
   }
   .closeButton {
     padding: 5px 15px;
@@ -115,13 +116,14 @@
     padding: 5px;
   }
   .titleMovie {
-    font-size: 50px;
+    font-size: 40px;
   }
   .date {
     font-size: 16px;
   }
   .container-resume {
-    font-size: 14px;
+    font-size: 16px;
+    margin: 0 72px 0;
   }
 
   .closeButton {
