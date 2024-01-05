@@ -15,7 +15,7 @@ https://lib-filmes.vercel.app/
 
 <br>
 
-O projeto teve intuito de praticar as funcionalidades e tecnologias que foram aprendidas no curso " __Hora de Codar do Matheus Battisti__ " e " **BootCamp Labenu** ".
+O projeto teve intuito de praticar as funcionalidades e tecnologias que foram aprendidas dos cursos " __Hora de Codar do Matheus Battisti__ " e " **BootCamp Labenu** ".
 
 O projeto se baseia em uma biblioteca de filmes com apresentação inicial de filmes mais bem avaliados sobre um repositório público, com índice em avaliações com dados de produção.
 
