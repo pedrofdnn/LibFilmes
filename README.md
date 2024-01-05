@@ -38,3 +38,12 @@ Possui também uma ferramenta de busca para saber sobre filmes no banco de avali
 ![Mobile 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile1_resized.png?raw=true) ![Mobile 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile2_resized.png?raw=true)
 ![Mobile 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile3_resized.png?raw=true) 
 </div>
+
+## Tecnologias utilizadas
+- ReactJS
+- React
+- TypeScript
+- React Router Dom
+- React Icons
+- React Modal
+- 
