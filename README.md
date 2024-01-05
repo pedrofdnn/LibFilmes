@@ -12,11 +12,13 @@ O projeto se baseia em uma biblioteca de filmes com apresentação inicial de fi
 Possui também uma ferramenta de busca para saber sobre filmes no banco de avaliações com descrições de produção e detalhes das obras. 
 
 ## Layout web
+<div align="center">
+  
+![Web 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/tela%20inicial_resized.png?raw=true) ![Web 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/resultado%20de%20pesquisas_resized.png?raw=true)
+![Web 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/descricao_resized.png?raw=true)
+![Web 4](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/descricao%20de%20pesquisa_resized.png?raw=true)
 
-![Web 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/tela%20inicial_resized.png?raw=true)
-![Web 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/uuan1tpo.png?raw=true)
-![Web 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/resultado%20de%20pesquisas.png?raw=true)
-![Web 4](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/descricao%20de%20pesquisa.png?raw=true)
+</div>
 
 ## Layout mobile
 ![Mobile 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile%20tela%20inicial.png?raw=true) ![Mobile 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile%20menu.png?raw=true)
