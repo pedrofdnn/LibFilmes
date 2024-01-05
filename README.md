@@ -21,6 +21,19 @@ O projeto se baseia em uma biblioteca de filmes com apresentação inicial de fi
 
 Possui também uma ferramenta de busca para saber sobre filmes no banco de avaliações com descrições de produção e detalhes das obras. 
 
+<h1 align="center"> Tecnologias e bilbiotecas utilizadas </h1>
+
+- ReactJS
+- React
+- Axios
+- TypeScript
+- React Router Dom
+- React Icons
+- React Modal
+- React Spinner
+- Styled Components
+
+
 <h1 align="center"> Layout web </h1>
 
 <div align="center">  
@@ -39,15 +52,4 @@ Possui também uma ferramenta de busca para saber sobre filmes no banco de avali
 ![Mobile 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile3_resized.png?raw=true) 
 </div>
 
-<h1 align="center"> Tecnologias e bilbiotecas utilizadas </h1>
-
-- ReactJS
-- React
-- Axios
-- TypeScript
-- React Router Dom
-- React Icons
-- React Modal
-- React Spinner
-- Styled Components
 
