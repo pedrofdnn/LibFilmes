@@ -31,10 +31,10 @@ Possui também uma ferramenta de busca para saber sobre filmes no banco de avali
 ![Web 4](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/descricao%20de%20pesquisa_resized.png?raw=true)
 </div>
 
-## Layout mobile
+<h1 align="center"> Layout mobile</h1>
 
 <div align="center">  
   
-![Mobile 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile1.png?raw=true) ![Mobile 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile2.png?raw=true)
-![Mobile 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile3.png?raw=true) 
+![Mobile 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile1_resized.png?raw=true) ![Mobile 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile2_resized.png?raw=true)
+![Mobile 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile3_resized.png?raw=true) 
 </div>
