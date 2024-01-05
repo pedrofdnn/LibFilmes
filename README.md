@@ -3,16 +3,21 @@
 
 # Sobre o projeto
 
+<div align="center">
 https://lib-filmes.vercel.app/
+</div>
 
-O projeto teve intuito de praticar as funcionalidades e tecnologias que foram aprendidas em cursos.
+<br>
+
+<div text-align="justify">
+O projeto teve intuito de praticar as funcionalidades e tecnologias que foram aprendidas no curso Hora de Codar do Matheus Batiste, em conjuto com o BootCamp Labenu.
 
 O projeto se baseia em uma biblioteca de filmes com apresentação inicial de filmes mais bem avaliados sobre um repositório público, com índice em avaliações com dados de produção.
 
 Possui também uma ferramenta de busca para saber sobre filmes no banco de avaliações com descrições de produção e detalhes das obras. 
-
+</div>
 ## Layout web
-<div align="center">
+<div align="justfy">
   
 ![Web 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/tela%20inicial_resized.png?raw=true) ![Web 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/resultado%20de%20pesquisas_resized.png?raw=true)
 ![Web 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/descricao_resized.png?raw=true)
