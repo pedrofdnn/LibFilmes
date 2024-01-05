@@ -13,7 +13,7 @@ Possui também uma ferramenta de busca para saber sobre filmes no banco de avali
 
 ## Layout web
 
-![Web 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/tela%20inicial.png?raw=true)
+![Web 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/tela%20inicial_resized.png?raw=true)
 ![Web 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/descricao.png?raw=true)
 ![Web 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/resultado%20de%20pesquisas.png?raw=true)
 ![Web 4](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/descricao%20de%20pesquisa.png?raw=true)
