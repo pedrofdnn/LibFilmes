@@ -1,14 +1,19 @@
-# Lib Fimes
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/pedrofdnn/LibFilmes/blob/main/LICENSE) 
+<h1 align="center"> Lib Fimes </h1> 
 
-# Sobre o projeto
+<div align="center">
+  
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/pedrofdnn/LibFilmes/blob/main/LICENSE)  
+
+</div>
+
+
+<h1>Sobre o projeto</h1>
 
 <div align="center">
 https://lib-filmes.vercel.app/
 </div>
 
 <br>
-
 
 O projeto teve intuito de praticar as funcionalidades e tecnologias que foram aprendidas no curso " __Hora de Codar do Matheus Battisti__ " e " **BootCamp Labenu** ".
 
