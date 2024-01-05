@@ -7,7 +7,7 @@
 </div>
 
 
-<h1>Sobre o projeto</h1>
+<h1 align="center">Sobre o projeto</h1>
 
 <div align="center">
 https://lib-filmes.vercel.app/
@@ -21,7 +21,7 @@ O projeto se baseia em uma biblioteca de filmes com apresentação inicial de fi
 
 Possui também uma ferramenta de busca para saber sobre filmes no banco de avaliações com descrições de produção e detalhes das obras. 
 
-## Layout web
+<h1 align="center"> Layout web </h1>
 
 <div align="center">  
   
