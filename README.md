@@ -24,6 +24,7 @@ Possui também uma ferramenta de busca para saber sobre filmes no banco de avali
 <h1 align="center"> Layout web </h1>
 
 <div align="center">  
+
   
 ![Web 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/tela%20inicial_resized.png?raw=true) ![Web 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/resultado%20de%20pesquisas_resized.png?raw=true)
 ![Web 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/descricao_resized.png?raw=true)
@@ -31,7 +32,9 @@ Possui também uma ferramenta de busca para saber sobre filmes no banco de avali
 </div>
 
 ## Layout mobile
-![Mobile 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile1.png?raw=true) ![Mobile 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile%20menu.png?raw=true)
-![Mobile 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile%20descricao.png?raw=true) ![Mobile 4](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile%20pesquisa.png?raw=true)
 
-
+<div align="center">  
+  
+![Mobile 1](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile1.png?raw=true) ![Mobile 2](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile2.png?raw=true)
+![Mobile 3](https://github.com/pedrofdnn/Assents/blob/main/Projeto%20libFilmes/mobile3.png?raw=true) 
+</div>
