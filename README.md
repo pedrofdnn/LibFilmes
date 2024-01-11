@@ -23,8 +23,9 @@ Possui também uma ferramenta de busca para saber sobre filmes no banco de avali
 
 <h1 align="center"> Tecnologias e bilbiotecas utilizadas </h1>
 
+- Vite
 - ReactJS
-- React
+- API - The Movie Database (TMDB)
 - Axios
 - TypeScript
 - React Router Dom
@@ -32,6 +33,7 @@ Possui também uma ferramenta de busca para saber sobre filmes no banco de avali
 - React Modal
 - React Spinner
 - Styled Components
+- CSS
 
 
 <h1 align="center"> Layout web </h1>
