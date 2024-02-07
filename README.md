@@ -21,7 +21,7 @@ O projeto se baseia em uma biblioteca de filmes com apresentação inicial de fi
 
 Possui também uma ferramenta de busca para saber sobre filmes no banco de avaliações com descrições de produção e detalhes das obras. 
 
-<h1 align="center"> Tecnologias e bilbiotecas utilizadas </h1>
+<h1 align="center"> O que foi utilizado! </h1>
 
 - Vite
 - ReactJS
