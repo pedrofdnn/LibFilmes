@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LiaSearchSolid } from "react-icons/lia";
-import { getAllMoviesBySearchTerm } from "../API/API";
 import { NavContainer, Searchbar } from "../Styles/StyleNav";
 import BugerComponent from "./BugerComponent";
 
 export default function NavbarComponent() {
   const history = useNavigate();
   const [changeClick, setChangeClick] = useState("");
-  const [currentPage] = useState(1);
 
   // captura o enter e muda o estado.
   async function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
