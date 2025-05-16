@@ -19,15 +19,16 @@ export default function ContactPage() {
           <h1>Olá me chamo Pedro Fernandes.</h1>
 
           <p>
-            Sou formado pelo bootcamp da Labenu e atualmente estou aprimorando
-            meus conhecimentos na faculdade, onde curso Ciências da Computação.
-            <br />
-            Tenho 10 anos de experiência com suporte técnico, onde realizava
-            suporte direto ao usuário presencialmente e remotamente. Hoje estou
-            em transição de carreira para ser um desenvolvedor e estou buscando
-            oportunidade na nova área com o objetivo de poder participar de
-            soluções que possam impactar na qualidade de vida das pessoas,
-            tornando tarefas e obrigações mais simples.
+            Minha trajetória profissional começou no suporte técnico, onde atuei
+            na manutenção de computadores, suporte remoto e administração de
+            redes e servidores. Durante esse período, desenvolvi um profundo
+            entendimento da lógica de processos, estrutura de dados e fluxo de
+            sistemas, o que despertou meu interesse pelo desenvolvimento de
+            software. Desde então, venho me especializando em tecnologias como
+            HTML, CSS, JavaScript, TypeScript e React, buscando aplicar meus
+            conhecimentos na construção de soluções eficientes e escaláveis. Meu
+            objetivo é consolidar minha carreira como desenvolvedor Full Stack e
+            contribuir com projetos que aliam inovação e qualidade técnica.
           </p>
 
           <article>

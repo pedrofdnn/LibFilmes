@@ -1,8 +1,9 @@
 {
   "name": "libfilmes",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.5",
   "type": "module",
+  "author": "Pedro Fernandes (https://www.linkedin.com/in/pedrofdnn/)",
   "scripts": {
     "dev": "vite --host --port 5173",
     "build": "tsc && vite build",

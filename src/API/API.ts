@@ -10,16 +10,17 @@ export interface Movie {
 
 const API_KEY = "9b6485a98f1d2b58864153d53d56cd51";
 const BASE_URL = "https://api.themoviedb.org/3";
-const LANGUAGE = "?language=pt-BR";
 
 // função que pega os dados dos melhores filmes
 export const getAllMovies = async (page: number): Promise<Movie[]> => {
   try {
     const response: AxiosResponse = await axios.get(
-      `${BASE_URL}movie/top_rated${LANGUAGE}&page=${page}`,
+      `${BASE_URL}/movie/top_rated`,
       {
         params: {
           api_key: API_KEY,
+          language: "pt-BR",
+          page: page,
         },
       }
     );
@@ -47,7 +48,6 @@ export const getAllMoviesBySearchTerm = async (
         },
       }
     );
-    console.log(response.config.url);
     return response.data.results;
   } catch (error) {
     console.error("Erro de Busca na API", error);
