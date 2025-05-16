@@ -12,24 +12,23 @@ import ReactModal from "react-modal";
 import HomePage from "./Pages/HomePage";
 
 // componente de paginação
+
 const router = createHashRouter([
   {
-    // pagina padrão como home page
     path: "/",
     element: <App />,
     errorElement: <ErroPage />,
-    // componente base para páginas
     children: [
       {
-        path: "/",
+        index: true,
         element: <HomePage />,
       },
       {
-        path: "/search/:query",
+        path: "search/:query",
         element: <SearchPage />,
       },
       {
-        path: "/contact",
+        path: "contact",
         element: <ContactPage />,
       },
     ],

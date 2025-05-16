@@ -14,21 +14,21 @@ export default function NavbarComponent() {
   async function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       e.preventDefault();
-      const results = await getAllMoviesBySearchTerm(changeClick, currentPage);
-      history(`/search/${changeClick}`, { state: { searchResults: results } });
-      window.location.reload();
-      setChangeClick("");
-      window.scrollTo({ top: 0, behavior: "instant" });
+      if (changeClick.trim() !== "") {
+        history(`/search/${changeClick}`);
+        setChangeClick("");
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
     }
   }
 
   // captura o click do botão.
   async function handleClick() {
-    const results = await getAllMoviesBySearchTerm(changeClick, currentPage);
-    history(`/search/${changeClick}`, { state: { searchResults: results } });
-    window.location.reload();
-    setChangeClick("");
-    window.scrollTo({ top: 0, behavior: "instant" });
+    if (changeClick.trim() !== "") {
+      history(`/search/${changeClick}`);
+      setChangeClick("");
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
   }
 
   // realiza a mudança de estado do input.
