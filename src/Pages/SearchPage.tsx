@@ -43,7 +43,13 @@ export default function SearchPage() {
     const fetchData = async () => {
       if (searchTerm) {
         setLoading(true);
+
+        if (currentPage === 1) {
+          setSearchResults([]); // limpa ao iniciar nova pesquisa
+        }
+
         const results = await fetchSearchResults(searchTerm, currentPage);
+
         if (currentPage === 1) {
           setSearchResults(results);
         } else {
@@ -53,16 +59,21 @@ export default function SearchPage() {
             } else if (results) {
               return results;
             } else {
-              return prevResults; // Caso não haja novos resultados
+              return prevResults;
             }
           });
         }
+
         setLoading(false);
       }
     };
 
     fetchData();
   }, [searchTerm, currentPage]);
+
+  useEffect(() => {
+  setCurrentPage(1);
+}, [searchTerm]);
 
   // captura o scroll e acrescenta mais uma pagina quando
   const handleScroll = () => {
